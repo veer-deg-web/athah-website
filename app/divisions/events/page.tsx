@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ModelSpotlight from "@/components/ModelSpotlight";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -75,6 +76,26 @@ export default function AthahEventsPage() {
           </Link>
         </div>
       </section>
+
+      <ModelSpotlight
+        badge="Stage Design Preview"
+        title="See the Event World Before It Goes Live"
+        description="The Events division is where stagecraft, sound, and showmanship come together. A focused 3D stage preview fits here because it supports the production story instead of interrupting the homepage."
+        notes={[
+          "Useful for concerts, annual functions, and artist nights",
+          "A cleaner place to show staging capability than the landing page",
+          "Works as a visual bridge between planning and execution",
+          "Keeps the homepage focused on the overall brand message",
+        ]}
+        items={[
+          {
+            url: "/glb/concert-stage.glb",
+            rotation: [0, Math.PI / 8, 0],
+            scale: 0.24,
+            floatSpeed: 0.8,
+          },
+        ]}
+      />
 
       {/* Event Types */}
       <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">

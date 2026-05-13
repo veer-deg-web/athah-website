@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ModelSpotlight from "@/components/ModelSpotlight";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -82,6 +83,42 @@ export default function ArtsAcademyPage() {
           </Link>
         </div>
       </section>
+
+      <ModelSpotlight
+        badge="Instrument Focus"
+        title="Arts Academy Should Showcase the Instruments"
+        description="This page is the natural home for music-led models. Guitar, violin, and microphone support the academy story far better here because they connect directly to training, recital practice, and performance readiness."
+        notes={[
+          "Ties the 3D content directly to faculty and student practice",
+          "Feels aligned with recital, vocal, and instrument training",
+          "Supports the academy narrative without cluttering other pages",
+          "Lets each division keep its own visual identity",
+        ]}
+        items={[
+          {
+            url: "/glb/guitar.glb",
+            position: [-1.75, 0, -0.2],
+            rotation: [0.18, 0.8, -0.2],
+            scale: 1.65,
+            floatSpeed: 0.95,
+          },
+          {
+            url: "/glb/violin.glb",
+            position: [1.35, 0.15, 0.1],
+            rotation: [0.1, -0.9, 0.25],
+            scale: 2.1,
+            floatSpeed: 1.1,
+          },
+          {
+            url: "/glb/microphone.glb",
+            position: [0, -0.35, 1.3],
+            rotation: [0.08, 0.2, 0],
+            scale: 0.78,
+            floatSpeed: 1.3,
+          },
+        ]}
+        align="left"
+      />
 
       {/* Faculty Types */}
       <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">

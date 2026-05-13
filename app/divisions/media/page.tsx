@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ModelSpotlight from "@/components/ModelSpotlight";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -121,6 +122,35 @@ export default function AthahMediaPage() {
           </div>
         </div>
       </section>
+
+      <ModelSpotlight
+        badge="Production Gear"
+        title="The Media Division Deserves the Camera Language"
+        description="Here the 3D models reinforce the actual service: capture. Using camera props on the Media page feels intentional because they visualize equipment, framing, and production craft."
+        notes={[
+          "Video camera and still camera match the production offering",
+          "3D adds context without competing with the real showreel footage",
+          "A contained gear scene feels more premium than a mixed prop collage",
+          "Keeps motion and visual interest inside the right division page",
+        ]}
+        align="left"
+        items={[
+          {
+            url: "/glb/video-camera.glb",
+            position: [-1.2, -0.1, 0.5],
+            rotation: [0.12, 0.7, 0],
+            scale: 1.05,
+            floatSpeed: 1,
+          },
+          {
+            url: "/glb/camera.glb",
+            position: [1.55, 0.2, -0.25],
+            rotation: [0.08, -0.65, 0],
+            scale: 1.15,
+            floatSpeed: 1.15,
+          },
+        ]}
+      />
 
       {/* Services */}
       <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">
