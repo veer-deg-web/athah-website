@@ -79,7 +79,7 @@ export default function MediaPageContent() {
           </video>
           <div
             className="absolute inset-0"
-            style={{ background: "radial-gradient(ellipse at 30% 70%, rgba(255,86,38,0.16) 0%, transparent 55%), rgba(19,19,19,0.62)" }}
+            style={{ background: "radial-gradient(ellipse at 30% 70%, rgba(245,158,11,0.16) 0%, transparent 55%), rgba(10,10,10,0.62)" }}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -101,7 +101,7 @@ export default function MediaPageContent() {
           <div className="flex flex-wrap gap-md">
             <Link
               href="/portfolio"
-              className="bg-[#FF4400] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all inline-block"
+              className="bg-[#D97706] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all inline-block"
             >
               VIEW PORTFOLIO
             </Link>
@@ -154,7 +154,7 @@ export default function MediaPageContent() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
             {services.map((s) => (
-              <div key={s.title} className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift group">
+              <div key={s.title} className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift group">
                 <div className="w-12 h-12 bg-primary-container/10 flex items-center justify-center mb-md group-hover:bg-primary-container/20 transition-colors">
                   <span className="material-symbols-outlined text-primary-container">{s.icon}</span>
                 </div>
@@ -173,7 +173,7 @@ export default function MediaPageContent() {
             <p className="text-body-md text-on-surface-variant">A curated selection of our production work.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter" style={{ height: "600px" }}>
-            <div className="md:col-span-8 relative bg-[#111111] border border-[#333336] overflow-hidden group stagger-item">
+            <div className="md:col-span-8 relative bg-[#121010] border border-[#2A2218] overflow-hidden group stagger-item">
               <video
                 className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
                 autoPlay
@@ -190,7 +190,7 @@ export default function MediaPageContent() {
                 <h4 className="text-headline-md">High-Energy Performance Coverage</h4>
               </div>
             </div>
-            <div className="md:col-span-4 relative bg-[#111111] border border-[#333336] overflow-hidden group stagger-item">
+            <div className="md:col-span-4 relative bg-[#121010] border border-[#2A2218] overflow-hidden group stagger-item">
               <img
                 src="/assets/IMG-20260508-WA0049.jpg"
                 alt="Athah media portfolio"
@@ -257,7 +257,7 @@ export default function MediaPageContent() {
                   href="/contact"
                   className={`w-full py-md text-label-sm uppercase tracking-wide font-bold text-center transition-all hover:scale-95 ${
                     pkg.featured
-                      ? "bg-[#FF4400] text-white"
+                      ? "bg-[#D97706] text-white"
                       : "border border-outline-variant/30 hover:bg-surface-container-high"
                   }`}
                 >

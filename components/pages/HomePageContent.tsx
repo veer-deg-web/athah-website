@@ -27,7 +27,7 @@ function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 65% 25%, rgba(255,86,38,0.14) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(255,86,38,0.1) 0%, transparent 45%), linear-gradient(135deg, rgba(6,6,6,0.8) 0%, rgba(19,19,19,0.72) 50%, rgba(26,8,0,0.86) 100%)",
+              "radial-gradient(ellipse at 65% 25%, rgba(245,158,11,0.14) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(245,158,11,0.1) 0%, transparent 45%), linear-gradient(135deg, rgba(6,6,6,0.8) 0%, rgba(10,10,10,0.72) 50%, rgba(26,8,0,0.86) 100%)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
@@ -58,7 +58,7 @@ function HeroSection() {
           <div className="flex flex-wrap gap-md">
             <Link
               href="/contact"
-              className="bg-[#FF4400] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all duration-150 btn-primary-hover inline-block"
+              className="bg-[#D97706] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all duration-150 btn-primary-hover inline-block"
             >
               PLAN YOUR EVENT
             </Link>
@@ -154,7 +154,7 @@ function AboutStrip() {
           {items.map((item) => (
             <div
               key={item.label}
-              className="bg-[#111111] border border-[#333336] p-lg flex flex-col gap-sm card-lift"
+              className="bg-[#121010] border border-[#2A2218] p-lg flex flex-col gap-sm card-lift"
             >
               <span className="material-symbols-outlined text-primary-container text-[32px]">
                 {item.icon}
@@ -260,7 +260,7 @@ function DivisionsOverview() {
             <Link
               key={div.id}
               href={div.href}
-              className={`${div.span} bg-[#111111] border border-[#333336] p-lg md:p-xl flex flex-col justify-between min-h-[360px] group overflow-hidden relative stagger-item card-lift`}
+              className={`${div.span} bg-[#121010] border border-[#2A2218] p-lg md:p-xl flex flex-col justify-between min-h-[360px] group overflow-hidden relative stagger-item card-lift`}
             >
               <div className="absolute inset-0">
                 {div.media.type === "video" ? (
@@ -375,7 +375,7 @@ function FeaturedProjects() {
           {projects.map((p, i) => (
             <div
               key={i}
-              className="relative min-h-[300px] bg-[#111111] border border-[#333336] overflow-hidden group stagger-item card-lift cursor-pointer"
+              className="relative min-h-[300px] bg-[#121010] border border-[#2A2218] overflow-hidden group stagger-item card-lift cursor-pointer"
             >
               <img
                 src={p.media}
@@ -533,7 +533,7 @@ function WhyAthahSection() {
           {reasons.map((r) => (
             <div
               key={r.title}
-              className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift group"
+              className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift group"
             >
               <span className="material-symbols-outlined text-primary-container text-[40px] mb-md block">
                 {r.icon}
@@ -583,7 +583,7 @@ function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <figure
               key={i}
-              className="bg-[#111111] border border-[#333336] p-lg flex flex-col justify-between stagger-item card-lift"
+              className="bg-[#121010] border border-[#2A2218] p-lg flex flex-col justify-between stagger-item card-lift"
             >
               <div>
                 <span className="text-primary-container text-[48px] font-serif leading-none block mb-md">
@@ -652,7 +652,7 @@ function CTASection() {
         <div className="glass-card p-xl flex flex-col md:flex-row md:items-end justify-between gap-lg relative overflow-hidden stagger-item">
           <div
             className="absolute top-0 right-0 w-80 h-80 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"
-            style={{ background: "rgba(255,86,38,0.08)" }}
+            style={{ background: "rgba(245,158,11,0.08)" }}
           />
           <div className="relative z-10 flex-1 min-w-0 max-w-2xl">
             <h2 className="text-headline-lg mb-md">
@@ -666,7 +666,7 @@ function CTASection() {
           <div className="relative z-10 flex flex-col sm:flex-row gap-md self-start md:self-end md:justify-end">
             <Link
               href="/contact"
-              className="bg-[#FF4400] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all btn-primary-hover text-center"
+              className="bg-[#D97706] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all btn-primary-hover text-center"
             >
               Book Consultation
             </Link>

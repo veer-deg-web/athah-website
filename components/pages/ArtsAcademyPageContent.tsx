@@ -48,7 +48,7 @@ export default function ArtsAcademyPageContent() {
           />
           <div
             className="absolute inset-0"
-            style={{ background: "radial-gradient(ellipse at 50% 20%, rgba(255,86,38,0.14) 0%, transparent 55%), rgba(19,19,19,0.7)" }}
+            style={{ background: "radial-gradient(ellipse at 50% 20%, rgba(245,158,11,0.14) 0%, transparent 55%), rgba(10,10,10,0.7)" }}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -69,7 +69,7 @@ export default function ArtsAcademyPageContent() {
           </p>
           <Link
             href="/contact"
-            className="bg-[#FF4400] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all inline-block"
+            className="bg-[#D97706] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all inline-block"
           >
             HIRE FACULTY
           </Link>
@@ -122,7 +122,7 @@ export default function ArtsAcademyPageContent() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
             {faculties.map((f) => (
-              <div key={f.title} className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift">
+              <div key={f.title} className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift">
                 <span className="material-symbols-outlined text-primary-container text-[40px] mb-md block">{f.icon}</span>
                 <h3 className="text-headline-md mb-sm">{f.title}</h3>
                 <p className="text-body-md text-on-surface-variant mb-md">{f.desc}</p>
@@ -146,7 +146,7 @@ export default function ArtsAcademyPageContent() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
             {audiences.map((a) => (
-              <div key={a.title} className="bg-[#111111] border border-[#333336] p-xl stagger-item card-lift">
+              <div key={a.title} className="bg-[#121010] border border-[#2A2218] p-xl stagger-item card-lift">
                 <span className="material-symbols-outlined text-primary-container text-[48px] mb-md block">{a.icon}</span>
                 <h3 className="text-headline-md mb-lg">{a.title}</h3>
                 <ul className="flex flex-col gap-md">
@@ -186,7 +186,7 @@ export default function ArtsAcademyPageContent() {
               </Link>
             </div>
             <div className="stagger-item grid grid-cols-2 gap-md">
-              <div className="col-span-2 relative min-h-[220px] overflow-hidden border border-[#333336]">
+              <div className="col-span-2 relative min-h-[220px] overflow-hidden border border-[#2A2218]">
                 <img
                   src="/assets/IMG-20260508-WA0058.jpg"
                   alt="Students performing at an Athah-led program"
@@ -204,7 +204,7 @@ export default function ArtsAcademyPageContent() {
                 { icon: "assignment", label: "Reports", value: "Monthly" },
                 { icon: "phone_in_talk", label: "Support", value: "Always On" },
               ].map((item) => (
-                <div key={item.label} className="bg-[#111111] border border-[#333336] p-lg flex flex-col gap-sm">
+                <div key={item.label} className="bg-[#121010] border border-[#2A2218] p-lg flex flex-col gap-sm">
                   <span className="material-symbols-outlined text-primary-container text-[28px]">{item.icon}</span>
                   <p className="text-primary-container font-bold text-headline-md">{item.value}</p>
                   <p className="text-label-sm text-on-surface-variant uppercase tracking-wide">{item.label}</p>

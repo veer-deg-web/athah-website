@@ -81,7 +81,7 @@ export default function BlogPage() {
       <section className="relative py-xl px-margin overflow-hidden border-b border-outline-variant/10">
         <div
           className="absolute inset-0 z-0"
-          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(255,86,38,0.07) 0%, transparent 50%), #131313" }}
+          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(245,158,11,0.07) 0%, transparent 50%), #0A0A0A" }}
         />
         <div className="relative z-10 max-w-7xl mx-auto">
           <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
@@ -105,10 +105,10 @@ export default function BlogPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
             <div
-              className="md:col-span-7 relative min-h-[400px] bg-[#111111] border border-[#333336] overflow-hidden group stagger-item card-lift cursor-pointer"
+              className="md:col-span-7 relative min-h-[400px] bg-[#121010] border border-[#2A2218] overflow-hidden group stagger-item card-lift cursor-pointer"
               style={{
                 background:
-                  "radial-gradient(ellipse at 30% 60%, rgba(255,86,38,0.12) 0%, transparent 55%), #111111",
+                  "radial-gradient(ellipse at 30% 60%, rgba(245,158,11,0.12) 0%, transparent 55%), #121010",
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
@@ -132,7 +132,7 @@ export default function BlogPage() {
               {posts.slice(1, 3).map((post, i) => (
                 <div
                   key={i}
-                  className="bg-[#111111] border border-[#333336] p-lg flex-1 stagger-item card-lift cursor-pointer"
+                  className="bg-[#121010] border border-[#2A2218] p-lg flex-1 stagger-item card-lift cursor-pointer"
                 >
                   <span className="text-primary-container text-label-sm uppercase tracking-widest mb-sm block">
                     {post.category}
@@ -175,7 +175,7 @@ export default function BlogPage() {
             {posts.slice(3).map((post, i) => (
               <div
                 key={i}
-                className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift cursor-pointer"
+                className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift cursor-pointer"
               >
                 <span className="text-primary-container text-label-sm uppercase tracking-widest mb-sm block">
                   {post.category}

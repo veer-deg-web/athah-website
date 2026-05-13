@@ -81,7 +81,7 @@ export default function SolutionsPage() {
       <section className="relative py-xl px-margin overflow-hidden border-b border-outline-variant/10">
         <div
           className="absolute inset-0 z-0"
-          style={{ background: "radial-gradient(ellipse at 40% 30%, rgba(255,86,38,0.09) 0%, transparent 50%), #131313" }}
+          style={{ background: "radial-gradient(ellipse at 40% 30%, rgba(245,158,11,0.09) 0%, transparent 50%), #0A0A0A" }}
         />
         <div className="relative z-10 max-w-7xl mx-auto">
           <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">Our Solutions</span>
@@ -120,7 +120,7 @@ export default function SolutionsPage() {
                 </div>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-sm bg-[#FF4400] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all"
+                  className="inline-flex items-center gap-sm bg-[#D97706] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all"
                 >
                   {s.cta}
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -131,7 +131,7 @@ export default function SolutionsPage() {
                 className={`md:col-span-5 stagger-item ${i % 2 === 1 ? "md:order-1" : ""}`}
               >
                 <div
-                  className="relative h-[300px] bg-[#111111] border border-[#333336] flex items-center justify-center card-lift"
+                  className="relative h-[300px] bg-[#121010] border border-[#2A2218] flex items-center justify-center card-lift"
                 >
                   <span className="material-symbols-outlined text-primary-container/30 text-[120px]">
                     {s.icon}

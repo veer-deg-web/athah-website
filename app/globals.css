@@ -1,53 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── COLORS ── */
-  --color-background: #131313;
-  --color-on-background: #e2e2e2;
-  --color-surface: #131313;
-  --color-surface-dim: #131313;
-  --color-surface-bright: #393939;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-surface-container-low: #1b1b1b;
-  --color-surface-container: #1f1f1f;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-highest: #353535;
-  --color-on-surface: #e2e2e2;
-  --color-on-surface-variant: #e7bdb2;
-  --color-inverse-surface: #e2e2e2;
-  --color-inverse-on-surface: #303030;
-  --color-outline: #ad887e;
-  --color-outline-variant: #5d4038;
-  --color-surface-tint: #ffb5a1;
-  --color-primary: #ffb5a1;
-  --color-on-primary: #601400;
-  --color-primary-container: #ff5626;
-  --color-on-primary-container: #541000;
-  --color-inverse-primary: #b12d00;
-  --color-secondary: #c8c6c9;
-  --color-on-secondary: #303033;
-  --color-secondary-container: #49494c;
-  --color-on-secondary-container: #b9b8bb;
-  --color-tertiary: #c7c6cc;
-  --color-on-tertiary: #2f3035;
-  --color-tertiary-container: #909096;
-  --color-on-tertiary-container: #29292f;
+  /* ── ATHAH BRAND COLORS ── */
+  --color-background: #0A0A0A;
+  --color-on-background: #FFF8E7;
+  --color-surface: #0A0A0A;
+  --color-surface-dim: #0A0A0A;
+  --color-surface-bright: #2A2520;
+  --color-surface-container-lowest: #050505;
+  --color-surface-container-low: #141210;
+  --color-surface-container: #1A1714;
+  --color-surface-container-high: #252119;
+  --color-surface-container-highest: #302A21;
+  --color-on-surface: #FFF8E7;
+  --color-on-surface-variant: #B8B8B8;
+  --color-inverse-surface: #FFF8E7;
+  --color-inverse-on-surface: #171717;
+  --color-outline: #8B7355;
+  --color-outline-variant: #3D3328;
+  --color-surface-tint: #F59E0B;
+  --color-primary: #F59E0B;
+  --color-on-primary: #3D2700;
+  --color-primary-container: #D97706;
+  --color-on-primary-container: #FFF8E7;
+  --color-inverse-primary: #B45309;
+  --color-secondary: #B8B8B8;
+  --color-on-secondary: #2A2A2A;
+  --color-secondary-container: #3D3D3D;
+  --color-on-secondary-container: #B8B8B8;
+  --color-tertiary: #D4AF37;
+  --color-on-tertiary: #2A1F00;
+  --color-tertiary-container: #B8962E;
+  --color-on-tertiary-container: #FFF8E7;
   --color-error: #ffb4ab;
   --color-on-error: #690005;
   --color-error-container: #93000a;
   --color-on-error-container: #ffdad6;
-  --color-primary-fixed: #ffdbd1;
-  --color-primary-fixed-dim: #ffb5a1;
-  --color-on-primary-fixed: #3b0900;
-  --color-on-primary-fixed-variant: #882000;
-  --color-secondary-fixed: #e4e2e5;
-  --color-on-secondary-fixed: #1b1b1e;
-  --color-on-secondary-fixed-variant: #474649;
-  --color-tertiary-fixed: #e3e2e8;
-  --color-tertiary-fixed-dim: #c7c6cc;
-  --color-on-tertiary-fixed: #1a1b20;
-  --color-on-tertiary-fixed-variant: #46464c;
-  --color-surface-variant: #353535;
+  --color-primary-fixed: #FDE68A;
+  --color-primary-fixed-dim: #F59E0B;
+  --color-on-primary-fixed: #3D2700;
+  --color-on-primary-fixed-variant: #92400E;
+  --color-secondary-fixed: #D4D4D4;
+  --color-on-secondary-fixed: #171717;
+  --color-on-secondary-fixed-variant: #404040;
+  --color-tertiary-fixed: #FDE68A;
+  --color-tertiary-fixed-dim: #D4AF37;
+  --color-on-tertiary-fixed: #2A1F00;
+  --color-on-tertiary-fixed-variant: #78620A;
+  --color-surface-variant: #2A2520;
 
   /* ── SPACING ── */
   --spacing-xs: 4px;
@@ -60,49 +60,51 @@
   --spacing-margin: 40px;
 
   /* ── FONTS ── */
-  --font-sans: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-display: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-headline-lg: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-headline-md: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-body-lg: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-body-md: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-label-sm: var(--font-inter, 'Inter', system-ui, sans-serif);
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 /* ── TYPOGRAPHY SCALE ── */
 @layer utilities {
   .text-display {
+    font-family: var(--font-playfair, 'Playfair Display'), 'Georgia', serif;
     font-size: 84px;
     line-height: 1;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     font-weight: 700;
   }
   .text-headline-lg {
+    font-family: var(--font-playfair, 'Playfair Display'), 'Georgia', serif;
     font-size: 48px;
     line-height: 1.1;
-    letter-spacing: -0.02em;
-    font-weight: 600;
-  }
-  .text-headline-md {
-    font-size: 32px;
-    line-height: 1.2;
     letter-spacing: -0.01em;
     font-weight: 600;
   }
+  .text-headline-md {
+    font-family: var(--font-playfair, 'Playfair Display'), 'Georgia', serif;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 0em;
+    font-weight: 600;
+  }
   .text-body-lg {
+    font-family: var(--font-inter, 'Inter'), system-ui, sans-serif;
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: 0.005em;
     font-weight: 400;
   }
   .text-body-md {
+    font-family: var(--font-inter, 'Inter'), system-ui, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
     font-weight: 400;
   }
   .text-label-sm {
+    font-family: var(--font-inter, 'Inter'), system-ui, sans-serif;
     font-size: 12px;
     line-height: 1;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     font-weight: 600;
   }
 }
@@ -111,8 +113,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
-  background-color: #131313;
-  color: #e2e2e2;
+  background-color: #0A0A0A;
+  color: #FFF8E7;
   font-family: var(--font-inter, 'Inter', system-ui, sans-serif);
   -webkit-font-smoothing: antialiased;
 }
@@ -125,16 +127,16 @@ body {
 /* ── GLASS CARD ── */
 .glass-card {
   backdrop-filter: blur(12px);
-  background: rgba(27, 27, 27, 0.7);
-  border: 1px solid #333336;
+  background: rgba(20, 18, 16, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 /* ── BENTO ITEM ── */
 .bento-item {
-  border: 1px solid #333336;
+  border: 1px solid rgba(61, 51, 40, 0.6);
   transition: border-color 0.3s ease;
 }
-.bento-item:hover { border-color: #ff5626; }
+.bento-item:hover { border-color: #F59E0B; }
 
 /* ── ANIMATION TOKENS ── */
 :root {
@@ -169,7 +171,7 @@ body {
 
 /* ── INTERACTION STATES ── */
 .btn-primary-hover:hover {
-  box-shadow: 0 0 20px rgba(255, 68, 0, 0.4);
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.35), 0 0 48px rgba(212, 175, 55, 0.15);
   transform: scale(1.02);
 }
 
@@ -182,19 +184,19 @@ body {
 
 /* ── NAV SCROLL STATE ── */
 .nav-scrolled {
-  background-color: rgba(19, 19, 19, 0.85) !important;
+  background-color: rgba(10, 10, 10, 0.88) !important;
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(93, 64, 56, 0.3) !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12) !important;
 }
 
 /* ── SELECTION ── */
 ::selection {
-  background-color: #ff5626;
-  color: #541000;
+  background-color: #D97706;
+  color: #FFF8E7;
 }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0e0e0e; }
-::-webkit-scrollbar-thumb { background: #333336; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #ff5626; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #3D3328; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #F59E0B; }

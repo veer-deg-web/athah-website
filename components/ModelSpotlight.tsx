@@ -56,7 +56,7 @@ function SpotlightScene({ items }: { items: ModelItem[] }) {
         penumbra={0.9}
         intensity={80}
         distance={24}
-        color="#ff6128"
+        color="#F59E0B"
       />
       <Environment preset="studio" />
 
@@ -70,12 +70,12 @@ function SpotlightScene({ items }: { items: ModelItem[] }) {
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.45, 0]}>
         <circleGeometry args={[5.8, 64]} />
-        <meshStandardMaterial color="#111111" roughness={0.92} metalness={0.04} />
+        <meshStandardMaterial color="#121010" roughness={0.92} metalness={0.04} />
       </mesh>
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.42, 0]}>
         <ringGeometry args={[2.4, 4.6, 64]} />
-        <meshBasicMaterial color="#ff5c21" transparent opacity={0.18} />
+        <meshBasicMaterial color="#D4AF37" transparent opacity={0.18} />
       </mesh>
 
       <OrbitControls
