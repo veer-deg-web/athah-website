@@ -47,14 +47,36 @@ const testimonials = [
 ];
 
 const partners = [
-  { name: "Arihant International School, Nahan", category: "School" },
-  { name: "Tula's Dehradun", category: "School" },
-  { name: "Delhi Public School", category: "School" },
-  { name: "River Valley Global School", category: "School" },
-  { name: "Swami Vivekanand Public School", category: "School" },
-  { name: "RIT", category: "Institution" },
-  { name: "Lal Manjan Studio", category: "Studio" },
-  { name: "athah_events", category: "Media" },
+  {
+    name: "Arihant International School, Nahan",
+    category: "School",
+    logo: "/schhol logo /arihant .png",
+  },
+  {
+    name: "Tula's Dehradun",
+    category: "School",
+    logo: "/schhol logo /tulas.png",
+  },
+  {
+    name: "Delhi Public School",
+    category: "School",
+    logo: "/schhol logo /dpsvikasnanagar.jpg",
+  },
+  {
+    name: "Swami Vivekanand Public School",
+    category: "School",
+    logo: "/schhol logo /swami vivekanand.png",
+  },
+  {
+    name: "RIT",
+    category: "Institution",
+    logo: "/schhol logo /rit.png",
+  },
+  {
+    name: "PM Shri Kendriya Vidyalaya Raiwala",
+    category: "School",
+    logo: "/schhol logo /KVS.png",
+  },
 ];
 
 const metrics = [
@@ -144,12 +166,20 @@ export default function ClientsPage() {
             <h2 className="text-headline-lg mb-md">Partner Institutions</h2>
             <p className="text-body-md text-on-surface-variant">Organizations that have partnered with Athah.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-gutter">
             {partners.map((p) => (
               <div
                 key={p.name}
-                className="border border-outline-variant/20 flex flex-col items-center justify-center py-lg px-md gap-xs stagger-item group hover:border-primary-container/50 transition-colors"
+                className="border border-outline-variant/20 flex flex-col items-center justify-center py-lg px-md gap-md stagger-item group hover:border-primary-container/50 transition-colors bg-[#111111]"
               >
+                <div className="h-24 w-full flex items-center justify-center">
+                  <img
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    className="max-h-20 w-auto max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
                 <p className="text-label-sm uppercase tracking-widest text-on-surface-variant/50 group-hover:text-on-surface-variant transition-colors text-center">
                   {p.name}
                 </p>

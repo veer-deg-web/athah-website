@@ -329,18 +329,24 @@ function FeaturedProjects() {
       title: "Arihant International School Annual Function",
       tags: ["Choreography", "Lighting", "Stage Design"],
       media: "/assets/IMG-20260508-WA0016.jpg",
+      logo: "/schhol logo /arihant .png",
+      partner: "Arihant International School",
     },
     {
       cat: "School Event",
       title: "Tula's Institute Annual Day, Dehradun",
       tags: ["Event Production", "Videography", "Faculty"],
       media: "/assets/IMG-20260508-WA0059.jpg",
+      logo: "/schhol logo /tulas.png",
+      partner: "Tula's Institute",
     },
     {
       cat: "School Event",
       title: "Delhi Public School Cultural Program",
       tags: ["Dance Faculty", "Music", "Content Creation"],
       media: "/assets/IMG-20260508-WA0049.jpg",
+      logo: "/schhol logo /dpsvikasnanagar.jpg",
+      partner: "Delhi Public School",
     },
     {
       cat: "School Event",
@@ -385,6 +391,16 @@ function FeaturedProjects() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-lg z-10">
+                {p.logo ? (
+                  <div className="mb-md inline-flex items-center justify-center rounded-xl bg-white/95 px-md py-sm">
+                    <img
+                      src={p.logo}
+                      alt={`${p.partner ?? p.title} logo`}
+                      className="h-10 w-auto max-w-[120px] object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : null}
                 <span className="text-primary-container text-label-sm uppercase tracking-widest mb-xs block">
                   {p.cat}
                 </span>
@@ -555,12 +571,14 @@ function TestimonialsSection() {
         "Athah transformed our annual function. The choreography, lighting, and costumes were spectacular — and the entire process was stress-free for our team.",
       name: "Principal",
       role: "Arihant International School, Nahan",
+      logo: "/schhol logo /arihant .png",
     },
     {
       quote:
         "Finding reliable activity teachers was always a challenge. Since partnering with Athah, our dance and music programs run seamlessly every single week.",
       name: "Head of Activities",
       role: "Tula's Institute, Dehradun",
+      logo: "/schhol logo /tulas.png",
     },
     {
       quote:
@@ -586,6 +604,16 @@ function TestimonialsSection() {
               className="bg-[#111111] border border-[#333336] p-lg flex flex-col justify-between stagger-item card-lift"
             >
               <div>
+                {t.logo ? (
+                  <div className="mb-md inline-flex items-center justify-center rounded-xl bg-white px-md py-sm">
+                    <img
+                      src={t.logo}
+                      alt={`${t.role} logo`}
+                      className="h-10 w-auto max-w-[120px] object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : null}
                 <span className="text-primary-container text-[48px] font-serif leading-none block mb-md">
                   &ldquo;
                 </span>
@@ -609,14 +637,30 @@ function TestimonialsSection() {
 
 function PartnersSection() {
   const partners = [
-    "Arihant International School",
-    "Tula's Dehradun",
-    "Delhi Public School",
-    "River Valley Global School",
-    "Swami Vivekanand Public School",
-    "RIT",
-    "Lal Manjan Studio",
-    "athah_events",
+    {
+      name: "Arihant International School",
+      logo: "/schhol logo /arihant .png",
+    },
+    {
+      name: "Tula's Dehradun",
+      logo: "/schhol logo /tulas.png",
+    },
+    {
+      name: "Delhi Public School",
+      logo: "/schhol logo /dpsvikasnanagar.jpg",
+    },
+    {
+      name: "Swami Vivekanand Public School",
+      logo: "/schhol logo /swami vivekanand.png",
+    },
+    {
+      name: "RIT",
+      logo: "/schhol logo /rit.png",
+    },
+    {
+      name: "PM Shri Kendriya Vidyalaya Raiwala",
+      logo: "/schhol logo /KVS.png",
+    },
   ];
 
   return (
@@ -628,14 +672,22 @@ function PartnersSection() {
             Brands, institutions, and artists who partner with Athah.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-gutter">
           {partners.map((p) => (
             <div
-              key={p}
-              className="border border-outline-variant/20 flex items-center justify-center py-lg px-md stagger-item group hover:border-primary-container/50 transition-colors"
+              key={p.name}
+              className="border border-outline-variant/20 flex flex-col items-center justify-center py-lg px-md gap-md stagger-item group hover:border-primary-container/50 transition-colors bg-[#111111]"
             >
+              <div className="h-24 w-full flex items-center justify-center">
+                <img
+                  src={p.logo}
+                  alt={`${p.name} logo`}
+                  className="max-h-20 w-auto max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
               <p className="text-label-sm uppercase tracking-widest text-on-surface-variant/50 group-hover:text-on-surface-variant transition-colors text-center">
-                {p}
+                {p.name}
               </p>
             </div>
           ))}
