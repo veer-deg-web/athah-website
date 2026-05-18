@@ -237,7 +237,7 @@ function DivisionsOverview() {
     <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-md">
-          <div className="max-w-2xl stagger-item">
+          <div className="stagger-item flex-1 max-w-2xl">
             <h2 className="text-headline-lg mb-md">Our Four Divisions</h2>
             <p className="text-body-md text-on-surface-variant">
               Four distinct disciplines. One unified vision. Together, they

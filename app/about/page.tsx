@@ -165,9 +165,9 @@ function TeamStructure() {
     <ScrollReveal className="py-xl bg-surface-container-lowest border-y border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-margin">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-md">
-          <div className="stagger-item">
+          <div className="stagger-item flex-1 max-w-xl">
             <h2 className="text-headline-lg mb-md">Our Team</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               Founded by Mohit Kashyap — a growing team of creative professionals across four specialized divisions.
             </p>
           </div>
