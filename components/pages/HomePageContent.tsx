@@ -353,7 +353,7 @@ function FeaturedProjects() {
   return (
     <ScrollReveal className="py-xl px-margin max-w-7xl mx-auto">
       <div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-md">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-end mb-xl gap-md">
           <div className="stagger-item">
             <h2 className="text-headline-lg mb-md">Featured Projects</h2>
             <p className="text-body-md text-on-surface-variant max-w-xl">
@@ -362,7 +362,7 @@ function FeaturedProjects() {
           </div>
           <Link
             href="/portfolio"
-            className="text-primary text-label-sm uppercase tracking-wide flex items-center gap-xs group stagger-item"
+            className="text-primary text-label-sm uppercase tracking-wide flex items-center gap-xs group stagger-item whitespace-nowrap"
           >
             Full Portfolio{" "}
             <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
