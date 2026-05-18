@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Divisions — Athah Events, Media, Growth Studio & Arts Academy",
   description:
     "Explore Athah's four creative divisions: Events, Media, Growth Studio, and Arts Academy.",
-};
+  path: "/divisions",
+});
 
 const divisions = [
   {
@@ -64,9 +66,9 @@ export default function DivisionsPage() {
           <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
             Our Divisions
           </span>
-          <h1 className="text-display uppercase mb-lg max-w-4xl leading-none">
+          <h1 className="text-display uppercase mb-lg max-w-5xl leading-[0.92] text-primary-container">
             Four Disciplines. <br />
-            <span className="text-primary-container">One Vision.</span>
+            <span className="text-on-surface">One Vision.</span>
           </h1>
           <p className="text-body-lg text-on-surface-variant max-w-2xl">
             Each division is a specialist in its domain. Together, they form an
@@ -82,13 +84,17 @@ export default function DivisionsPage() {
           className={`py-xl px-margin ${i % 2 === 1 ? "bg-surface-container-lowest border-y border-outline-variant/10" : ""}`}
         >
           <div className="max-w-7xl mx-auto">
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-xl items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
-              <div className="stagger-item md:[direction:ltr]">
+            <div className="grid grid-cols-1 items-center gap-lg lg:grid-cols-2 lg:gap-xl">
+              <div
+                className={`stagger-item max-w-2xl ${i % 2 === 1 ? "lg:order-2 lg:justify-self-end lg:text-left" : "lg:order-1"}`}
+              >
                 <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
                   {div.name}
                 </span>
-                <h2 className="text-headline-lg mb-md">{div.tagline}</h2>
-                <p className="text-body-lg text-on-surface-variant mb-lg">
+                <h2 className="text-headline-lg mb-md text-primary-container">
+                  {div.tagline}
+                </h2>
+                <p className="text-body-lg text-on-surface-variant mb-lg max-w-xl">
                   {div.desc}
                 </p>
                 <div className="flex flex-wrap gap-sm mb-lg">
@@ -103,7 +109,7 @@ export default function DivisionsPage() {
                 </div>
                 <Link
                   href={div.href}
-                  className="bg-[#D97706] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all inline-flex items-center gap-sm"
+                  className="bg-primary-container text-on-primary-container px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all inline-flex items-center gap-sm"
                 >
                   Explore {div.name}
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -111,13 +117,13 @@ export default function DivisionsPage() {
               </div>
 
               <div
-                className="stagger-item relative min-h-[400px] bg-[#121010] border border-[#2A2218] flex flex-col justify-between p-xl md:[direction:ltr] card-lift"
+                className={`stagger-item relative flex min-h-[320px] flex-col justify-between border border-[#2A2218] bg-[#121010] p-lg card-lift sm:min-h-[360px] md:p-xl lg:min-h-[420px] ${i % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}
               >
-                <span className="material-symbols-outlined text-primary-container text-[80px]">
+                <span className="material-symbols-outlined text-primary-container text-[56px] sm:text-[68px] lg:text-[80px]">
                   {div.icon}
                 </span>
                 <div>
-                  <p className="text-headline-lg text-primary-container font-bold mb-xs">
+                  <p className="text-headline-md sm:text-headline-lg text-primary-container font-bold mb-xs">
                     {div.highlight}
                   </p>
                   <p className="text-body-md text-on-surface-variant">

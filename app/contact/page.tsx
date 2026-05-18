@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact Athah — Book a Consultation",
   description:
     "Book a consultation with Athah. Tell us about your event, project, or creative brief and we'll respond within 24 hours.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

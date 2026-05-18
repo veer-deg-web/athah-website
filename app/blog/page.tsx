@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Blog & Journal — Athah Insights on Events, Media & Growth",
   description:
     "Expert insights on event production, cinematography, social media growth, stage design, and the creative industry.",
-};
+  path: "/blog",
+});
 
 const categories = [
   "All", "Event Production", "Cinematography", "Creative Education",

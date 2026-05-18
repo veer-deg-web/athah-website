@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Solutions — Athah for Schools, Brands, Artists & More",
   description:
     "Tailored creative solutions for schools, colleges, artists, brands, creators, weddings, and event organizers.",
-};
+  path: "/solutions",
+});
 
 const solutions = [
   {

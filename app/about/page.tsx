@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About Athah — Our Story, Vision & Team",
   description:
     "Learn about Athah's brand story, creative philosophy, and the team behind India's premier creative force.",
-};
+  path: "/about",
+});
 
 function PageHero() {
   return (

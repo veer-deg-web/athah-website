@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Athah Growth Studio — Brand Growth & Social Media",
   description:
     "Strategic brand growth for schools, artists, and brands through content creation, social media, branding, and campaign management.",
-};
+  path: "/divisions/growth-studio",
+});
 
 const audiences = [
   {

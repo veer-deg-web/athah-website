@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { siteMetadata } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,9 +20,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Athah — Creating Experiences That Define Moments",
-  description:
-    "India's premier creative force — events, media, growth studio, and arts academy, delivered with cinematic precision.",
+  metadataBase: new URL(siteMetadata.url),
+  title: {
+    default: siteMetadata.defaultTitle,
+    template: "%s | Athah",
+  },
+  description: siteMetadata.description,
+  applicationName: siteMetadata.name,
+  referrer: "origin-when-cross-origin",
+  authors: [{ name: siteMetadata.name }],
+  creator: siteMetadata.name,
+  publisher: siteMetadata.name,
+  category: "Arts & Entertainment",
   keywords: [
     "Athah Events",
     "Athah Media",
@@ -31,7 +41,40 @@ export const metadata: Metadata = {
     "wedding planners",
     "corporate events",
     "cinematography",
+    "school events",
+    "creative partner",
   ],
+  openGraph: {
+    siteName: siteMetadata.name,
+    type: "website",
+    locale: siteMetadata.locale,
+    url: siteMetadata.url,
+    title: siteMetadata.defaultTitle,
+    description: siteMetadata.description,
+    images: [
+      {
+        url: siteMetadata.ogImage,
+        alt: siteMetadata.defaultTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMetadata.defaultTitle,
+    description: siteMetadata.description,
+    images: [siteMetadata.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -40,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en-IN" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <link
           rel="stylesheet"

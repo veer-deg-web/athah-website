@@ -93,7 +93,7 @@ function SpotlightScene({
         penumbra={0.9}
         intensity={95}
         distance={24}
-        color="#F59E0B"
+        color="#D97706"
       />
       <Environment preset="studio" />
       {fitMode === "bounds" ? (
