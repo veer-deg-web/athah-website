@@ -126,20 +126,17 @@ export default function MediaPageContent() {
           "Keeps motion and visual interest inside the right division page",
         ]}
         align="left"
+        fitMode="bounds"
+        autoRotate={false}
+        sceneClassName="mx-auto w-full max-w-[42rem] lg:max-w-[48rem]"
+        canvasClassName="h-[560px] w-full lg:h-[680px]"
         items={[
           {
             url: "/glb/video-camera.glb",
-            position: [-1.2, -0.1, 0.5],
-            rotation: [0.12, 0.7, 0],
-            scale: 1.05,
-            floatSpeed: 1,
-          },
-          {
-            url: "/glb/camera.glb",
-            position: [1.55, 0.2, -0.25],
-            rotation: [0.08, -0.65, 0],
-            scale: 1.15,
-            floatSpeed: 1.15,
+            position: [0, 0, 0],
+            rotation: [0.08, Math.PI / 8, 0],
+            scale: 1.7,
+            floating: false,
           },
         ]}
       />

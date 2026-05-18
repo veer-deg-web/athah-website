@@ -13,36 +13,42 @@ const testimonials = [
     name: "Principal",
     role: "Arihant International School, Nahan",
     type: "School Partner",
+    logo: "/schhol logo /arihant .png",
   },
   {
     quote: "Finding reliable activity teachers was always a challenge. Since partnering with Athah, our dance and music programs run seamlessly every single week without any management from our side.",
     name: "Head of Activities",
     role: "Tula's Institute, Dehradun",
     type: "School Partner",
+    logo: "/schhol logo /tulas.png",
   },
   {
     quote: "Parents can now see their children's daily progress through the reels and activity photos Athah creates. School trust and admissions interest have both grown significantly.",
     name: "Director",
     role: "River Valley Global School",
     type: "School Partner",
+    logo: "/schhol logo /rivervalley.png",
   },
   {
     quote: "The choreography for our annual day was exceptional — students were more confident, parents were amazed, and the event highlight reel went viral among our school community.",
     name: "Principal",
     role: "Delhi Public School",
     type: "School Partner",
+    logo: "/schhol logo /dpsvikasnanagar.jpg",
   },
   {
     quote: "Athah handles our content, social media, and activity documentation. The school's digital presence has never been stronger. They truly are a one-stop creative partner.",
     name: "Head of Administration",
     role: "Swami Vivekanand Public School",
     type: "School Partner",
+    logo: "/schhol logo /swami vivekanand.png",
   },
   {
     quote: "Professional, punctual, and genuinely creative. The stage design, sound, and lighting for our founder's day event was beyond what we expected at this budget.",
     name: "Event Coordinator",
     role: "RIT",
     type: "Institution Partner",
+    logo: "/schhol logo /rit.png",
   },
 ];
 
@@ -139,6 +145,14 @@ export default function ClientsPage() {
                 className="bg-[#111111] border border-[#333336] p-lg flex flex-col justify-between stagger-item card-lift"
               >
                 <div>
+                  <div className="mb-lg h-16 w-full flex items-center">
+                    <img
+                      src={t.logo}
+                      alt={`${t.role} logo`}
+                      className="max-h-14 w-auto max-w-[11rem] object-contain"
+                      loading="lazy"
+                    />
+                  </div>
                   <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
                     {t.type}
                   </span>

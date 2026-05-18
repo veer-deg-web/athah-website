@@ -30,6 +30,30 @@ const workflow = [
   { step: "05", title: "Wrap & Debrief", desc: "Post-event media delivery, reporting, and client debrief." },
 ];
 
+const teamProfiles = [
+  {
+    initials: "ED",
+    name: "Event Director",
+    role: "Event Director",
+    blurb: "Leads concept direction, client strategy, and overall experience design from the first brief to the final cue.",
+    specialties: ["Show Flow", "Client Direction", "Concept Planning"],
+  },
+  {
+    initials: "PL",
+    name: "Production Lead",
+    role: "Production Lead",
+    blurb: "Owns stage build, technical coordination, and vendor movement so the production runs tightly on ground.",
+    specialties: ["Stage Ops", "Tech Riders", "Vendor Control"],
+  },
+  {
+    initials: "AM",
+    name: "Artist Manager",
+    role: "Artist & Experience Manager",
+    blurb: "Handles artist hospitality, backstage movement, and audience-facing details that make the event feel polished.",
+    specialties: ["Artist Mgmt", "Backstage", "Guest Experience"],
+  },
+];
+
 export default function EventsPageContent() {
   return (
     <>
@@ -79,12 +103,17 @@ export default function EventsPageContent() {
           "Works as a visual bridge between planning and execution",
           "Keeps the homepage focused on the overall brand message",
         ]}
+        fitMode="manual"
+        autoRotate={false}
+        sceneClassName="mx-auto w-full max-w-[46rem] lg:max-w-[54rem]"
+        canvasClassName="h-[580px] w-full lg:h-[720px]"
         items={[
           {
             url: "/glb/concert-stage.glb",
-            rotation: [0, Math.PI / 8, 0],
-            scale: 0.24,
-            floatSpeed: 0.8,
+            position: [0, -0.05, 0.1],
+            rotation: [0, Math.PI / 12, 0],
+            scale: 0.7,
+            floating: false,
           },
         ]}
       />
@@ -198,6 +227,54 @@ export default function EventsPageContent() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-lg">
                   <p className="text-headline-md">{item.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal className="py-xl bg-surface-container-lowest border-y border-outline-variant/10">
+        <div className="max-w-7xl mx-auto px-margin">
+          <div className="mb-xl stagger-item max-w-3xl">
+            <span className="text-primary-container text-label-sm uppercase tracking-widest mb-sm block">
+              Team Profiles
+            </span>
+            <h2 className="text-headline-lg mb-md">The Team Behind the Show</h2>
+            <p className="text-body-md text-on-surface-variant">
+              A high-accountability event team with clear ownership across concept, production, and execution.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            {teamProfiles.map((member) => (
+              <div
+                key={member.name}
+                className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift"
+              >
+                <div className="mb-lg flex items-center gap-md">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-primary-container/40 bg-primary-container/10 text-primary-container text-headline-md font-bold tracking-wide">
+                    {member.initials}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-headline-md">{member.name}</h3>
+                    <p className="text-label-sm uppercase tracking-widest text-primary-container">
+                      {member.role}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-body-md text-on-surface-variant mb-md">
+                  {member.blurb}
+                </p>
+                <div className="flex flex-wrap gap-sm">
+                  {member.specialties.map((item) => (
+                    <span
+                      key={item}
+                      className="px-sm py-xs border border-outline-variant/30 text-label-sm text-on-surface-variant"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}

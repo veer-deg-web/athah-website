@@ -86,27 +86,17 @@ export default function ArtsAcademyPageContent() {
           "Supports the academy narrative without cluttering other pages",
           "Lets each division keep its own visual identity",
         ]}
+        fitMode="bounds"
+        autoRotate={false}
+        sceneClassName="mx-auto w-full max-w-[40rem] lg:max-w-[46rem]"
+        canvasClassName="h-[580px] w-full lg:h-[700px]"
         items={[
           {
-            url: "/glb/guitar.glb",
-            position: [-1.75, 0, -0.2],
-            rotation: [0.18, 0.8, -0.2],
-            scale: 1.65,
-            floatSpeed: 0.95,
-          },
-          {
             url: "/glb/violin.glb",
-            position: [1.35, 0.15, 0.1],
-            rotation: [0.1, -0.9, 0.25],
-            scale: 2.1,
-            floatSpeed: 1.1,
-          },
-          {
-            url: "/glb/microphone.glb",
-            position: [0, -0.35, 1.3],
-            rotation: [0.08, 0.2, 0],
-            scale: 0.78,
-            floatSpeed: 1.3,
+            position: [0, 0.15, 0],
+            rotation: [0.06, -Math.PI / 7, 0.12],
+            scale: 1.05,
+            floating: false,
           },
         ]}
         align="left"

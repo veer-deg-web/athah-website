@@ -12,6 +12,7 @@ type ModelItem = {
   rotation?: Vec3;
   scale?: number;
   floatSpeed?: number;
+  floating?: boolean;
 };
 
 type ModelSpotlightProps = {
@@ -21,6 +22,10 @@ type ModelSpotlightProps = {
   notes: string[];
   items: ModelItem[];
   align?: "left" | "right";
+  fitMode?: "bounds" | "manual";
+  autoRotate?: boolean;
+  sceneClassName?: string;
+  canvasClassName?: string;
 };
 
 function SpotlightAsset({
@@ -29,60 +34,82 @@ function SpotlightAsset({
   rotation = [0, 0, 0],
   scale = 1,
   floatSpeed = 1,
+  floating = true,
 }: ModelItem) {
   const { scene } = useGLTF(url);
 
+  const content = (
+    <group position={position} rotation={rotation} scale={scale}>
+      <Center>
+        <primitive object={scene.clone()} />
+      </Center>
+    </group>
+  );
+
+  if (!floating) {
+    return content;
+  }
+
   return (
     <Float speed={floatSpeed} rotationIntensity={0.1} floatIntensity={0.14}>
-      <group position={position} rotation={rotation} scale={scale}>
-        <Center>
-          <primitive object={scene.clone()} />
-        </Center>
-      </group>
+      {content}
     </Float>
   );
 }
 
-function SpotlightScene({ items }: { items: ModelItem[] }) {
+function SpotlightScene({
+  items,
+  fitMode = "bounds",
+  autoRotate = true,
+  canvasClassName,
+}: {
+  items: ModelItem[];
+  fitMode?: "bounds" | "manual";
+  autoRotate?: boolean;
+  canvasClassName?: string;
+}) {
+  const content = (
+    <group position={fitMode === "manual" ? [0, -0.9, 0] : [0, -0.1, 0]}>
+      {items.map((item, index) => (
+        <SpotlightAsset key={`${item.url}-${index}`} {...item} />
+      ))}
+    </group>
+  );
+
   return (
-    <Canvas dpr={[1, 1.5]} camera={{ position: [0, 1.2, 8], fov: 32 }} className="h-[420px] w-full">
-      <color attach="background" args={["#070707"]} />
-      <fog attach="fog" args={["#070707", 8, 18]} />
-      <ambientLight intensity={1.3} />
-      <directionalLight position={[4, 5, 4]} intensity={2.2} color="#fff1e8" />
+    <Canvas
+      dpr={[1, 1.5]}
+      camera={{ position: [0, 1.15, 6.2], fov: 26 }}
+      className={canvasClassName ?? "h-[520px] w-full lg:h-[620px]"}
+      gl={{ antialias: true, alpha: true }}
+    >
+      <ambientLight intensity={1.85} />
+      <hemisphereLight intensity={1.1} groundColor="#131313" color="#f6eee8" />
+      <directionalLight position={[4, 5, 4]} intensity={2.8} color="#fff1e8" />
+      <directionalLight position={[-4, 3, 2]} intensity={1.4} color="#c8d7ff" />
       <spotLight
         position={[-5, 6, 5]}
         angle={0.52}
         penumbra={0.9}
-        intensity={80}
+        intensity={95}
         distance={24}
         color="#ff6128"
       />
       <Environment preset="studio" />
 
-      <Bounds fit clip observe margin={1.15}>
-        <group position={[0, -0.25, 0]}>
-          {items.map((item) => (
-            <SpotlightAsset key={item.url} {...item} />
-          ))}
-        </group>
-      </Bounds>
-
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.45, 0]}>
-        <circleGeometry args={[5.8, 64]} />
-        <meshStandardMaterial color="#111111" roughness={0.92} metalness={0.04} />
-      </mesh>
-
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.42, 0]}>
-        <ringGeometry args={[2.4, 4.6, 64]} />
-        <meshBasicMaterial color="#ff5c21" transparent opacity={0.18} />
-      </mesh>
+      {fitMode === "bounds" ? (
+        <Bounds fit clip observe margin={1.15}>
+          {content}
+        </Bounds>
+      ) : (
+        content
+      )}
 
       <OrbitControls
         enablePan={false}
         enableZoom={false}
-        autoRotate
-        autoRotateSpeed={0.45}
+        autoRotate={autoRotate}
+        autoRotateSpeed={0.35}
         minAzimuthAngle={-0.45}
         maxAzimuthAngle={0.45}
         minPolarAngle={Math.PI / 2.6}
@@ -94,7 +121,7 @@ function SpotlightScene({ items }: { items: ModelItem[] }) {
 
 function SceneFallback() {
   return (
-    <div className="h-[420px] w-full border border-outline-variant/20 bg-[#0d0d0d] flex items-center justify-center text-label-sm uppercase tracking-[0.3em] text-on-surface-variant/60">
+    <div className="h-[520px] w-full bg-transparent flex items-center justify-center text-label-sm uppercase tracking-[0.3em] text-on-surface-variant/60 lg:h-[620px]">
       Loading Model
     </div>
   );
@@ -107,24 +134,28 @@ export default function ModelSpotlight({
   notes,
   items,
   align = "right",
+  fitMode = "bounds",
+  autoRotate = true,
+  sceneClassName,
+  canvasClassName,
 }: ModelSpotlightProps) {
   const layoutClass =
     align === "left"
-      ? "lg:grid-cols-[minmax(520px,1fr)_0.95fr]"
-      : "lg:grid-cols-[0.95fr_minmax(520px,1fr)]";
+      ? "lg:grid-cols-[minmax(320px,0.86fr)_minmax(560px,1.14fr)]"
+      : "lg:grid-cols-[minmax(560px,1.14fr)_minmax(320px,0.86fr)]";
 
   const textOrder = align === "left" ? "lg:order-2" : "";
   const sceneOrder = align === "left" ? "lg:order-1" : "";
 
   return (
     <section className="px-margin py-xl">
-      <div className={`max-w-7xl mx-auto grid gap-xl items-center ${layoutClass}`}>
-        <div className={`min-w-0 max-w-2xl ${textOrder}`}>
+      <div className={`max-w-7xl mx-auto grid grid-cols-1 gap-xl items-center ${layoutClass}`}>
+        <div className={`min-w-0 max-w-2xl lg:max-w-none ${textOrder}`}>
           <span className="inline-block px-md py-xs border border-primary/50 text-primary text-label-sm uppercase tracking-widest rounded-full mb-md">
             {badge}
           </span>
           <h2 className="text-headline-lg mb-md">{title}</h2>
-          <p className="text-body-lg text-on-surface-variant max-w-xl mb-lg">
+          <p className="text-body-lg text-on-surface-variant max-w-xl lg:max-w-2xl mb-lg">
             {description}
           </p>
           <div className="grid gap-md sm:grid-cols-2">
@@ -139,9 +170,14 @@ export default function ModelSpotlight({
           </div>
         </div>
 
-        <div className={`min-w-0 overflow-hidden border border-outline-variant/20 bg-black/40 shadow-[0_40px_120px_rgba(0,0,0,0.45)] ${sceneOrder}`}>
+        <div className={`min-w-0 overflow-visible bg-transparent ${sceneClassName ?? "mx-auto w-full max-w-[44rem] lg:max-w-[48rem]"} ${sceneOrder}`}>
           <Suspense fallback={<SceneFallback />}>
-            <SpotlightScene items={items} />
+            <SpotlightScene
+              items={items}
+              fitMode={fitMode}
+              autoRotate={autoRotate}
+              canvasClassName={canvasClassName}
+            />
           </Suspense>
         </div>
       </div>
@@ -151,9 +187,11 @@ export default function ModelSpotlight({
 
 [
   "/glb/concert-stage.glb",
+  "/glb/Speaker.glb",
+  "/glb/drum-set.glb",
   "/glb/video-camera.glb",
   "/glb/camera.glb",
   "/glb/guitar.glb",
   "/glb/violin.glb",
-  "/glb/microphone.glb",
+  "/glb/Microphone.glb",
 ].forEach((url) => useGLTF.preload(url));

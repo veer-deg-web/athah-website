@@ -38,13 +38,13 @@ export default function Footer() {
   return (
     <footer className="bg-surface-container-lowest border-t border-outline-variant/20 mt-xl">
       <div className="max-w-7xl mx-auto px-margin pt-xl pb-lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-xl mb-xl">
+        <div className="grid grid-cols-1 gap-xl mb-xl items-start md:grid-cols-2 xl:grid-cols-[minmax(0,1.35fr)_repeat(4,minmax(0,0.9fr))]">
           {/* Brand column */}
-          <div className="lg:col-span-2 min-w-0">
+          <div className="min-w-0">
             <p className="text-headline-md font-bold tracking-tighter text-on-background mb-md">
               ATHAH
             </p>
-            <p className="text-body-md text-on-surface-variant/70 mb-lg max-w-md">
+            <p className="text-body-md leading-relaxed text-on-surface-variant/70 mb-lg max-w-[24rem] xl:max-w-[28rem]">
               Where Art Breathes Eternity — a creative partner for schools,
               institutions &amp; cultural ecosystems. Based in Dehradun.
             </p>
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
-            <div key={heading} className="lg:col-span-1">
+            <div key={heading} className="min-w-0">
               <h4 className="text-label-sm uppercase tracking-widest text-on-surface mb-md">
                 {heading}
               </h4>
@@ -87,8 +87,8 @@ export default function Footer() {
         </div>
 
         {/* Contact strip */}
-        <div className="border-t border-outline-variant/10 pt-lg pb-md flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-lg text-on-surface-variant/50">
+        <div className="border-t border-outline-variant/10 pt-lg pb-md flex flex-col lg:flex-row justify-between items-start lg:items-center gap-md">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-md lg:gap-lg text-on-surface-variant/50 min-w-0">
             <a
               href="https://wa.me/918433167030"
               className="flex items-center gap-xs hover:text-primary-container transition-colors text-label-sm uppercase tracking-wide"
@@ -108,7 +108,7 @@ export default function Footer() {
               athaheventsddn@gmail.com
             </a>
           </div>
-          <p className="text-label-sm text-on-surface-variant/40 uppercase tracking-widest text-left md:text-right">
+          <p className="text-label-sm text-on-surface-variant/40 uppercase tracking-widest text-left lg:text-right max-w-full">
             © 2025 Athah Arts & Entertainment. All Rights Reserved.
           </p>
         </div>
