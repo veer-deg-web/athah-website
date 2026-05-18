@@ -58,7 +58,7 @@ export default function DivisionsPage() {
       <section className="relative py-xl px-margin overflow-hidden border-b border-outline-variant/10">
         <div
           className="absolute inset-0 z-0"
-          style={{ background: "radial-gradient(ellipse at 70% 30%, rgba(255,86,38,0.08) 0%, transparent 50%), #131313" }}
+          style={{ background: "radial-gradient(ellipse at 70% 30%, rgba(245,158,11,0.08) 0%, transparent 50%), #0A0A0A" }}
         />
         <div className="relative z-10 max-w-7xl mx-auto">
           <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
@@ -103,7 +103,7 @@ export default function DivisionsPage() {
                 </div>
                 <Link
                   href={div.href}
-                  className="bg-[#FF4400] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all inline-flex items-center gap-sm"
+                  className="bg-[#D97706] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all inline-flex items-center gap-sm"
                 >
                   Explore {div.name}
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -111,7 +111,7 @@ export default function DivisionsPage() {
               </div>
 
               <div
-                className="stagger-item relative min-h-[400px] bg-[#111111] border border-[#333336] flex flex-col justify-between p-xl md:[direction:ltr] card-lift"
+                className="stagger-item relative min-h-[400px] bg-[#121010] border border-[#2A2218] flex flex-col justify-between p-xl md:[direction:ltr] card-lift"
               >
                 <span className="material-symbols-outlined text-primary-container text-[80px]">
                   {div.icon}

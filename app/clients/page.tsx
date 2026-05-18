@@ -99,7 +99,7 @@ export default function ClientsPage() {
       <section className="relative py-xl px-margin overflow-hidden border-b border-outline-variant/10">
         <div
           className="absolute inset-0 z-0"
-          style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(255,86,38,0.08) 0%, transparent 50%), #131313" }}
+          style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(245,158,11,0.08) 0%, transparent 50%), #0A0A0A" }}
         />
         <div className="relative z-10 max-w-7xl mx-auto">
           <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
@@ -142,7 +142,7 @@ export default function ClientsPage() {
             {testimonials.map((t, i) => (
               <figure
                 key={i}
-                className="bg-[#111111] border border-[#333336] p-lg flex flex-col justify-between stagger-item card-lift"
+                className="bg-[#121010] border border-[#2A2218] p-lg flex flex-col justify-between stagger-item card-lift"
               >
                 <div>
                   <div className="mb-lg h-16 w-full flex items-center">

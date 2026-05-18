@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   Divisions: [
@@ -41,9 +42,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-xl mb-xl items-start md:grid-cols-2 xl:grid-cols-[minmax(0,1.35fr)_repeat(4,minmax(0,0.9fr))]">
           {/* Brand column */}
           <div className="min-w-0">
-            <p className="text-headline-md font-bold tracking-tighter text-on-background mb-md">
-              ATHAH
-            </p>
+            <div className="mb-md">
+              <Image
+                src="/ATHAH LOGO.png"
+                alt="ATHAH"
+                width={120}
+                height={36}
+                className="h-9 w-auto"
+              />
+            </div>
             <p className="text-body-md leading-relaxed text-on-surface-variant/70 mb-lg max-w-[24rem] xl:max-w-[28rem]">
               Where Art Breathes Eternity — a creative partner for schools,
               institutions &amp; cultural ecosystems. Based in Dehradun.

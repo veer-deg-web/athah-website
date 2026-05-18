@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -53,9 +54,16 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-headline-md font-bold tracking-tighter text-on-background"
+          className="flex items-center"
         >
-          ATHAH
+          <Image
+            src="/ATHAH LOGO.png"
+            alt="ATHAH"
+            width={160}
+            height={48}
+            className="h-12 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Links */}

@@ -61,7 +61,7 @@ export default function CareersPage() {
       <section className="relative py-xl px-margin overflow-hidden border-b border-outline-variant/10">
         <div
           className="absolute inset-0 z-0"
-          style={{ background: "radial-gradient(ellipse at 50% 30%, rgba(255,86,38,0.1) 0%, transparent 55%), #131313" }}
+          style={{ background: "radial-gradient(ellipse at 50% 30%, rgba(245,158,11,0.1) 0%, transparent 55%), #0A0A0A" }}
         />
         <div className="relative z-10 max-w-7xl mx-auto">
           <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
@@ -86,7 +86,7 @@ export default function CareersPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
             {perks.map((p) => (
-              <div key={p.title} className="bg-[#111111] border border-[#333336] p-lg flex gap-lg stagger-item card-lift">
+              <div key={p.title} className="bg-[#121010] border border-[#2A2218] p-lg flex gap-lg stagger-item card-lift">
                 <span className="material-symbols-outlined text-primary-container text-[40px] flex-shrink-0">
                   {p.icon}
                 </span>
@@ -123,7 +123,7 @@ export default function CareersPage() {
                   {team.roles.map((role) => (
                     <div
                       key={role.title}
-                      className="bg-[#111111] border border-[#333336] p-lg flex flex-col justify-between card-lift group"
+                      className="bg-[#121010] border border-[#2A2218] p-lg flex flex-col justify-between card-lift group"
                     >
                       <div>
                         <h4 className="text-headline-md mb-md">{role.title}</h4>
@@ -156,7 +156,7 @@ export default function CareersPage() {
       <ScrollReveal className="py-xl bg-surface-container-lowest border-y border-outline-variant/10">
         <div className="max-w-7xl mx-auto px-margin">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
-            <div className="bg-[#111111] border border-[#333336] p-xl stagger-item card-lift">
+            <div className="bg-[#121010] border border-[#2A2218] p-xl stagger-item card-lift">
               <span className="material-symbols-outlined text-primary-container text-[48px] mb-md block">
                 explore
               </span>
@@ -175,7 +175,7 @@ export default function CareersPage() {
               </Link>
             </div>
 
-            <div className="bg-[#111111] border border-[#333336] p-xl stagger-item card-lift">
+            <div className="bg-[#121010] border border-[#2A2218] p-xl stagger-item card-lift">
               <span className="material-symbols-outlined text-primary-container text-[48px] mb-md block">
                 star
               </span>

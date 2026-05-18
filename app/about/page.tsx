@@ -15,7 +15,7 @@ function PageHero() {
         className="absolute inset-0 z-0"
         style={{
           background:
-            "radial-gradient(ellipse at 80% 20%, rgba(255,86,38,0.08) 0%, transparent 50%), #131313",
+            "radial-gradient(ellipse at 80% 20%, rgba(245,158,11,0.08) 0%, transparent 50%), #0A0A0A",
         }}
       />
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -60,10 +60,10 @@ function BrandStory() {
         </div>
 
         <div
-          className="stagger-item relative h-[400px] border border-[#333336] overflow-hidden"
+          className="stagger-item relative h-[400px] border border-[#2A2218] overflow-hidden"
           style={{
             background:
-              "radial-gradient(ellipse at 40% 60%, rgba(255,86,38,0.15) 0%, transparent 60%), #111111",
+              "radial-gradient(ellipse at 40% 60%, rgba(245,158,11,0.15) 0%, transparent 60%), #121010",
           }}
         >
           <div className="absolute inset-0 flex items-center justify-center">
@@ -90,7 +90,7 @@ function VisionMission() {
     <ScrollReveal className="py-xl bg-surface-container-lowest border-y border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-margin">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
-          <div className="stagger-item bg-[#111111] border border-[#333336] p-xl">
+          <div className="stagger-item bg-[#121010] border border-[#2A2218] p-xl">
             <span className="material-symbols-outlined text-primary-container text-[48px] mb-md block">
               visibility
             </span>
@@ -99,7 +99,7 @@ function VisionMission() {
               To be the most trusted creative partner for schools and institutions — where art is accessible, students are seen, and every cultural moment is preserved with excellence.
             </p>
           </div>
-          <div className="stagger-item bg-[#111111] border border-[#333336] p-xl">
+          <div className="stagger-item bg-[#121010] border border-[#2A2218] p-xl">
             <span className="material-symbols-outlined text-primary-container text-[48px] mb-md block">
               rocket_launch
             </span>
@@ -136,7 +136,7 @@ function CreativePhilosophy() {
           {pillars.map((p) => (
             <div
               key={p.title}
-              className="bg-[#111111] border border-[#333336] p-lg flex gap-lg items-start stagger-item card-lift"
+              className="bg-[#121010] border border-[#2A2218] p-lg flex gap-lg items-start stagger-item card-lift"
             >
               <span className="material-symbols-outlined text-primary-container text-[40px] flex-shrink-0">
                 {p.icon}
@@ -165,9 +165,9 @@ function TeamStructure() {
     <ScrollReveal className="py-xl bg-surface-container-lowest border-y border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-margin">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-md">
-          <div className="stagger-item">
+          <div className="stagger-item flex-1 max-w-xl">
             <h2 className="text-headline-lg mb-md">Our Team</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               Founded by Mohit Kashyap — a growing team of creative professionals across four specialized divisions.
             </p>
           </div>
@@ -186,7 +186,7 @@ function TeamStructure() {
           {teams.map((t) => (
             <div
               key={t.division}
-              className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift"
+              className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift"
             >
               <div className="flex justify-between items-start mb-md">
                 <h3 className="text-headline-md">{t.division}</h3>

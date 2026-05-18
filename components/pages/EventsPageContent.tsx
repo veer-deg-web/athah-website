@@ -66,7 +66,7 @@ export default function EventsPageContent() {
           />
           <div
             className="absolute inset-0"
-            style={{ background: "radial-gradient(ellipse at 60% 30%, rgba(255,86,38,0.14) 0%, transparent 55%), rgba(19,19,19,0.66)" }}
+            style={{ background: "radial-gradient(ellipse at 60% 30%, rgba(245,158,11,0.14) 0%, transparent 55%), rgba(10,10,10,0.66)" }}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -86,7 +86,7 @@ export default function EventsPageContent() {
           </p>
           <Link
             href="/contact"
-            className="bg-[#FF4400] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all duration-150 inline-block"
+            className="bg-[#D97706] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all duration-150 inline-block"
           >
             BOOK CONSULTATION
           </Link>
@@ -130,7 +130,7 @@ export default function EventsPageContent() {
             {eventTypes.map((e) => (
               <div
                 key={e.title}
-                className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift group"
+                className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift group"
               >
                 <span className="material-symbols-outlined text-primary-container text-[40px] mb-md block">
                   {e.icon}
@@ -155,7 +155,7 @@ export default function EventsPageContent() {
             {services.map((s) => (
               <div
                 key={s.title}
-                className="bg-[#111111] border border-[#333336] p-lg flex flex-col gap-sm stagger-item card-lift"
+                className="bg-[#121010] border border-[#2A2218] p-lg flex flex-col gap-sm stagger-item card-lift"
               >
                 <span className="material-symbols-outlined text-primary-container text-[32px]">
                   {s.icon}
@@ -182,7 +182,7 @@ export default function EventsPageContent() {
                   <div className="w-10 h-10 flex-shrink-0 bg-primary-container text-on-primary-container flex items-center justify-center text-label-sm font-bold z-10">
                     {w.step}
                   </div>
-                  <div className="bg-[#111111] border border-[#333336] p-lg flex-1">
+                  <div className="bg-[#121010] border border-[#2A2218] p-lg flex-1">
                     <h3 className="text-headline-md mb-sm">{w.title}</h3>
                     <p className="text-body-md text-on-surface-variant">{w.desc}</p>
                   </div>
@@ -196,7 +196,7 @@ export default function EventsPageContent() {
       <ScrollReveal className="py-xl px-margin max-w-7xl mx-auto">
         <div>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-md">
-            <div className="stagger-item">
+            <div className="stagger-item flex-1 max-w-xl">
               <h2 className="text-headline-lg mb-md">Event Gallery</h2>
               <p className="text-body-md text-on-surface-variant">A snapshot of the moments we've created.</p>
             </div>
@@ -216,7 +216,7 @@ export default function EventsPageContent() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="relative min-h-[280px] bg-[#111111] border border-[#333336] overflow-hidden group stagger-item card-lift"
+                className="relative min-h-[280px] bg-[#121010] border border-[#2A2218] overflow-hidden group stagger-item card-lift"
               >
                 <img
                   src={item.src}
@@ -292,7 +292,7 @@ export default function EventsPageContent() {
           </div>
           <Link
             href="/contact"
-            className="self-start md:self-end bg-[#FF4400] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all flex-shrink-0"
+            className="self-start md:self-end bg-[#D97706] text-white px-lg py-md text-label-sm uppercase tracking-widest font-bold hover:scale-95 transition-all flex-shrink-0"
           >
             Book Consultation
           </Link>

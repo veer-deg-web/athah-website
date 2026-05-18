@@ -80,7 +80,7 @@ export default function GrowthStudioPage() {
           </video>
           <div
             className="absolute inset-0"
-            style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(255,86,38,0.16) 0%, transparent 50%), rgba(19,19,19,0.66)" }}
+            style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(245,158,11,0.16) 0%, transparent 50%), rgba(10,10,10,0.66)" }}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -100,7 +100,7 @@ export default function GrowthStudioPage() {
           </p>
           <Link
             href="/contact"
-            className="bg-[#FF4400] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all inline-block"
+            className="bg-[#D97706] text-white px-lg py-md text-headline-md rounded-none hover:scale-95 transition-all inline-block"
           >
             START PARTNERSHIP
           </Link>
@@ -118,7 +118,7 @@ export default function GrowthStudioPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
             {audiences.map((a) => (
-              <div key={a.title} className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift">
+              <div key={a.title} className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift">
                 <span className="material-symbols-outlined text-primary-container text-[48px] mb-md block">
                   {a.icon}
                 </span>
@@ -146,7 +146,7 @@ export default function GrowthStudioPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
             {services.map((s) => (
-              <div key={s.title} className="bg-[#111111] border border-[#333336] p-lg stagger-item card-lift">
+              <div key={s.title} className="bg-[#121010] border border-[#2A2218] p-lg stagger-item card-lift">
                 <span className="material-symbols-outlined text-primary-container text-[40px] mb-md block">{s.icon}</span>
                 <h3 className="text-headline-md mb-sm">{s.title}</h3>
                 <p className="text-body-md text-on-surface-variant">{s.desc}</p>
@@ -200,7 +200,7 @@ export default function GrowthStudioPage() {
                 <Link
                   href="/contact"
                   className={`py-md text-label-sm uppercase tracking-wide font-bold text-center transition-all hover:scale-95 ${
-                    p.featured ? "bg-[#FF4400] text-white" : "border border-outline-variant/30 hover:bg-surface-container-high"
+                    p.featured ? "bg-[#D97706] text-white" : "border border-outline-variant/30 hover:bg-surface-container-high"
                   }`}
                 >
                   Get Started
