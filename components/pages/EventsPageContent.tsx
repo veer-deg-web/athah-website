@@ -103,16 +103,14 @@ export default function EventsPageContent() {
           "Works as a visual bridge between planning and execution",
           "Keeps the homepage focused on the overall brand message",
         ]}
-        fitMode="manual"
-        autoRotate={false}
-        sceneClassName="mx-auto w-full max-w-[46rem] lg:max-w-[54rem]"
-        canvasClassName="h-[580px] w-full lg:h-[720px]"
+        fitMode="bounds"
+        autoRotate={true}
+        sceneClassName="mx-auto w-full max-w-[56rem] lg:max-w-[64rem]"
+        canvasClassName="h-[680px] w-full lg:h-[860px]"
         items={[
           {
             url: "/glb/concert-stage.glb",
-            position: [0, -0.05, 0.1],
-            rotation: [0, Math.PI / 12, 0],
-            scale: 0.7,
+            scale: 1,
             floating: false,
           },
         ]}

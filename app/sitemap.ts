@@ -1,27 +1,42 @@
 import type { MetadataRoute } from "next";
 import { siteMetadata } from "@/lib/seo";
 
-const routes = [
-  "",
-  "/about",
-  "/blog",
-  "/careers",
-  "/clients",
-  "/contact",
-  "/divisions",
-  "/divisions/events",
-  "/divisions/media",
-  "/divisions/growth-studio",
-  "/divisions/arts-academy",
-  "/portfolio",
-  "/solutions",
+type RouteConfig = {
+  path: string;
+  priority: number;
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+};
+
+const routes: RouteConfig[] = [
+  // Highest priority — landing
+  { path: "", priority: 1.0, changeFrequency: "weekly" },
+
+  // High-traffic conversion pages
+  { path: "/contact", priority: 0.95, changeFrequency: "monthly" },
+  { path: "/portfolio", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/clients", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/blog", priority: 0.85, changeFrequency: "weekly" },
+
+  // Division hub + sub-pages
+  { path: "/divisions", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/divisions/events", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/divisions/media", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/divisions/growth-studio", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/divisions/arts-academy", priority: 0.8, changeFrequency: "monthly" },
+
+  // Solutions hub
+  { path: "/solutions", priority: 0.75, changeFrequency: "monthly" },
+
+  // Supporting pages
+  { path: "/careers", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/about", priority: 0.65, changeFrequency: "monthly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
-    url: `${siteMetadata.url}${route}`,
+  return routes.map(({ path, priority, changeFrequency }) => ({
+    url: `${siteMetadata.url}${path}`,
     lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.8,
+    changeFrequency,
+    priority,
   }));
 }

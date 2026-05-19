@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ModelSpotlight from "@/components/ModelSpotlight";
+import InstrumentGrid from "@/components/InstrumentGrid";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const faculties = [
@@ -76,31 +76,37 @@ export default function ArtsAcademyPageContent() {
         </div>
       </section>
 
-      <ModelSpotlight
-        badge="Instrument Focus"
-        title="Arts Academy Should Showcase the Instruments"
-        description="This page is the natural home for music-led models. Guitar, violin, and microphone support the academy story far better here because they connect directly to training, recital practice, and performance readiness."
-        notes={[
-          "Ties the 3D content directly to faculty and student practice",
-          "Feels aligned with recital, vocal, and instrument training",
-          "Supports the academy narrative without cluttering other pages",
-          "Lets each division keep its own visual identity",
-        ]}
-        fitMode="bounds"
-        autoRotate={false}
-        sceneClassName="mx-auto w-full max-w-[40rem] lg:max-w-[46rem]"
-        canvasClassName="h-[580px] w-full lg:h-[700px]"
-        items={[
-          {
-            url: "/glb/violin.glb",
-            position: [0, 0.15, 0],
-            rotation: [0.06, -Math.PI / 7, 0.12],
-            scale: 1.05,
-            floating: false,
-          },
-        ]}
-        align="left"
-      />
+      <section className="px-margin py-xl">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-stretch">
+          {/* Left — 2×2 instrument grid */}
+          <div className="w-full">
+            <InstrumentGrid height="h-[155px] lg:h-[185px]" />
+          </div>
+
+          {/* Right — text content */}
+          <div className="flex flex-col justify-center min-w-0">
+            <span className="inline-block px-md py-xs border border-primary/50 text-primary text-label-sm uppercase tracking-widest rounded-full mb-md w-fit">
+              Instrument Focus
+            </span>
+            <h2 className="text-headline-lg mb-md">Arts Academy Should Showcase the Instruments</h2>
+            <p className="text-body-lg text-on-surface-variant mb-lg">
+              This page is the natural home for music-led models. Guitar, drum kit, boombox, and speaker support the academy story because they connect directly to training, recital practice, and performance readiness.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+              {[
+                "Ties the 3D content directly to faculty and student practice",
+                "Feels aligned with recital, vocal, and instrument training",
+                "Supports the academy narrative without cluttering other pages",
+                "Lets each division keep its own visual identity",
+              ].map((note) => (
+                <div key={note} className="border border-outline-variant/20 bg-black/20 p-md text-body-md text-on-surface-variant">
+                  {note}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">
         <div className="max-w-7xl mx-auto">

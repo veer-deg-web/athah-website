@@ -4,6 +4,9 @@ import { listCareerApplications } from "@/lib/careers";
 import { createPageMetadata } from "@/lib/seo";
 import { listFeedbackSubmissions } from "@/lib/testimonials";
 import { getAllEditablePages } from "@/lib/content";
+import dbConnect from "@/lib/mongodb";
+import Enquiry, { IEnquiry } from "@/lib/models/Enquiry";
+import AdminSettingsForm from "@/components/admin/AdminSettingsForm";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin Dashboard — Athah Careers",
@@ -18,6 +21,10 @@ export default async function AdminDashboardPage() {
   const applications = await listCareerApplications();
   const feedback = await listFeedbackSubmissions();
   const pages = await getAllEditablePages();
+  
+  // Enquiries
+  await dbConnect();
+  const enquiries = (await Enquiry.find({}).sort({ createdAt: -1 }).lean()) as IEnquiry[];
 
   return (
     <section className="px-margin py-xl">
@@ -239,6 +246,74 @@ export default async function AdminDashboardPage() {
             </table>
           </div>
         </div>
+        {/* ── Enquiries ────────────────────────────────────────────────── */}
+        <div className="mt-xl">
+          <div className="mb-lg">
+            <h2 className="text-headline-md mb-sm">Enquiry Submissions</h2>
+            <p className="text-body-md text-on-surface-variant">
+              Contact form submissions from the public enquiry portal.
+            </p>
+          </div>
+          <div className="overflow-x-auto border border-outline-variant/20">
+            <table className="w-full min-w-[1100px] text-left">
+              <thead className="bg-surface-container-lowest">
+                <tr className="text-label-sm uppercase tracking-widest text-on-surface-variant">
+                  <th className="px-md py-md">Contact</th>
+                  <th className="px-md py-md">Division</th>
+                  <th className="px-md py-md">Event Type</th>
+                  <th className="px-md py-md">Budget</th>
+                  <th className="px-md py-md">Location</th>
+                  <th className="px-md py-md">Date</th>
+                  <th className="px-md py-md">Message</th>
+                  <th className="px-md py-md">Submitted</th>
+                </tr>
+              </thead>
+              <tbody>
+                {enquiries.length === 0 ? (
+                  <tr>
+                    <td colSpan={8} className="px-md py-lg text-body-md text-on-surface-variant">
+                      No enquiries submitted yet.
+                    </td>
+                  </tr>
+                ) : (
+                  enquiries.map((enq, i) => (
+                    <tr key={i} className="border-t border-outline-variant/15 align-top">
+                      <td className="px-md py-md">
+                        <p className="text-body-md font-semibold text-on-surface">{enq.name}</p>
+                        <p className="text-body-md text-on-surface-variant">{enq.email}</p>
+                        <p className="text-body-md text-on-surface-variant">{enq.phone}</p>
+                      </td>
+                      <td className="px-md py-md text-body-md text-on-surface-variant">{enq.division}</td>
+                      <td className="px-md py-md text-body-md text-on-surface-variant">{enq.eventType || "—"}</td>
+                      <td className="px-md py-md text-body-md text-on-surface-variant">{enq.budget || "—"}</td>
+                      <td className="px-md py-md text-body-md text-on-surface-variant">{enq.eventLocation || "—"}</td>
+                      <td className="px-md py-md text-body-md text-on-surface-variant">{enq.eventDate || "—"}</td>
+                      <td className="px-md py-md text-body-md text-on-surface-variant max-w-xs">{enq.message}</td>
+                      <td className="px-md py-md text-body-md text-on-surface-variant">
+                        {new Date(enq.createdAt).toLocaleString("en-IN", {
+                          dateStyle: "medium",
+                          timeStyle: "short",
+                        })}
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* ── Admin Settings ───────────────────────────────────────────── */}
+        <div className="mt-xl border-t border-outline-variant/15 pt-xl">
+          <div className="mb-lg">
+            <h2 className="text-headline-md mb-sm">Admin Settings</h2>
+            <p className="text-body-md text-on-surface-variant">
+              Configure the admin notification email and other site-level settings.
+            </p>
+          </div>
+          <AdminSettingsForm />
+        </div>
+
       </div>
     </section>
   );

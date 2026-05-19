@@ -127,16 +127,15 @@ export default function MediaPageContent() {
         ]}
         align="left"
         fitMode="bounds"
-        autoRotate={false}
-        sceneClassName="mx-auto w-full max-w-[42rem] lg:max-w-[48rem]"
-        canvasClassName="h-[560px] w-full lg:h-[680px]"
+        autoRotate={true}
+        sceneClassName="mx-auto w-full max-w-[52rem] lg:max-w-[60rem]"
+        canvasClassName="h-[660px] w-full lg:h-[800px]"
         items={[
           {
             url: "/glb/video-camera.glb",
-            position: [0, 0, 0],
-            rotation: [0.08, Math.PI / 8, 0],
-            scale: 1.7,
-            floating: false,
+            scale: 1,
+            floating: true,
+            floatSpeed: 0.7,
           },
         ]}
       />

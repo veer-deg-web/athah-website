@@ -23,5 +23,5 @@ export default async function PortfolioPage() {
     _id: cat._id?.toString()
   }));
 
-  return <PortfolioPageContent initialCategories={categories} />;
+  return <PortfolioPageContent initialCategories={categories as any[]} />;
 }
