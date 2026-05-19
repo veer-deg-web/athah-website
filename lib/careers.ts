@@ -1,13 +1,12 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
+import dbConnect from "./mongodb";
+import CareerApplication, { ICareerApplication } from "./models/CareerApplication";
 
 export type CareerApplicationStatus = "new" | "reviewing" | "shortlisted" | "rejected";
 
-export type CareerApplication = {
-  id: string;
-  createdAt: string;
-  status: CareerApplicationStatus;
+export type CareerApplicationInput = {
   fullName: string;
   email: string;
   phone: string;
@@ -15,24 +14,14 @@ export type CareerApplication = {
   roleTitle: string;
   roleType: string;
   location: string;
-  experience: string;
-  portfolioUrl: string;
+  experience?: string;
+  portfolioUrl?: string;
   coverLetter: string;
-  resumeFileName: string | null;
-  resumeStoredName: string | null;
-  resumeDownloadPath: string | null;
-};
-
-export type CareerApplicationInput = Omit<
-  CareerApplication,
-  "id" | "createdAt" | "status" | "resumeStoredName" | "resumeDownloadPath"
-> & {
   resume?: File | null;
 };
 
 const storageRoot = path.join(process.cwd(), "storage", "careers");
 const resumesRoot = path.join(storageRoot, "resumes");
-const applicationsFile = path.join(storageRoot, "applications.json");
 
 function slugify(value: string) {
   return value
@@ -44,34 +33,20 @@ function slugify(value: string) {
 
 async function ensureStorage() {
   await mkdir(resumesRoot, { recursive: true });
-  try {
-    await readFile(applicationsFile, "utf8");
-  } catch {
-    await writeFile(applicationsFile, "[]", "utf8");
-  }
-}
-
-async function readApplicationsUnsafe() {
-  await ensureStorage();
-  const raw = await readFile(applicationsFile, "utf8");
-  return JSON.parse(raw) as CareerApplication[];
-}
-
-async function writeApplications(applications: CareerApplication[]) {
-  await ensureStorage();
-  await writeFile(applicationsFile, JSON.stringify(applications, null, 2), "utf8");
 }
 
 export async function listCareerApplications() {
-  const applications = await readApplicationsUnsafe();
-  return applications.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  await dbConnect();
+  return CareerApplication.find({}).sort({ createdAt: -1 });
 }
 
 export async function createCareerApplication(input: CareerApplicationInput) {
-  const applications = await readApplicationsUnsafe();
+  await dbConnect();
+  await ensureStorage();
+  
   const id = crypto.randomUUID();
-  let resumeStoredName: string | null = null;
-  let resumeDownloadPath: string | null = null;
+  let resumeStoredName: string | undefined = undefined;
+  let resumeDownloadPath: string | undefined = undefined;
 
   if (input.resume && input.resume.size > 0) {
     const extension = path.extname(input.resume.name) || ".bin";
@@ -81,10 +56,7 @@ export async function createCareerApplication(input: CareerApplicationInput) {
     resumeDownloadPath = `/api/careers/applications/${id}/resume`;
   }
 
-  const application: CareerApplication = {
-    id,
-    createdAt: new Date().toISOString(),
-    status: "new",
+  const application = new CareerApplication({
     fullName: input.fullName,
     email: input.email,
     phone: input.phone,
@@ -95,20 +67,18 @@ export async function createCareerApplication(input: CareerApplicationInput) {
     experience: input.experience,
     portfolioUrl: input.portfolioUrl,
     coverLetter: input.coverLetter,
-    resumeFileName: input.resume?.size ? input.resume.name : null,
+    resumeFileName: input.resume?.size ? input.resume.name : undefined,
     resumeStoredName,
     resumeDownloadPath,
-  };
+  });
 
-  applications.push(application);
-  await writeApplications(applications);
-
+  await application.save();
   return application;
 }
 
 export async function getCareerApplicationById(id: string) {
-  const applications = await readApplicationsUnsafe();
-  return applications.find((application) => application.id === id) ?? null;
+  await dbConnect();
+  return CareerApplication.findById(id);
 }
 
 export async function getCareerResumeFile(storedName: string) {

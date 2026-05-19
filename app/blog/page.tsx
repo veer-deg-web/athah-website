@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { createPageMetadata } from "@/lib/seo";
+import dbConnect from "@/lib/mongodb";
+import Blog, { IBlog } from "@/lib/models/Blog";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Blog & Journal — Athah Insights on Events, Media & Growth",
@@ -10,73 +12,28 @@ export const metadata: Metadata = createPageMetadata({
   path: "/blog",
 });
 
-const categories = [
+const defaultCategories = [
   "All", "Event Production", "Cinematography", "Creative Education",
   "Social Media Growth", "Stage & Lighting", "Artist Stories", "Industry Insights",
 ];
 
-const posts = [
-  {
-    category: "Event Production",
-    title: "The 10 Non-Negotiables of a High-End Corporate Event",
-    excerpt: "When a Fortune-500 company books an event, the margin for error is zero. Here are the ten pillars every corporate event must have.",
-    readTime: "6 min read",
-    date: "Apr 28, 2025",
-  },
-  {
-    category: "Cinematography",
-    title: "Why Your Event Aftermovie Matters More Than You Think",
-    excerpt: "An aftermovie isn't just documentation — it's a marketing asset, a memory, and a brand story. Here's how to get it right.",
-    readTime: "5 min read",
-    date: "Apr 20, 2025",
-  },
-  {
-    category: "Social Media Growth",
-    title: "How We Doubled a School's Instagram Following in 60 Days",
-    excerpt: "A case study on the content strategy, posting cadence, and story-driven approach that made it happen.",
-    readTime: "7 min read",
-    date: "Apr 12, 2025",
-  },
-  {
-    category: "Stage & Lighting",
-    title: "Lighting Design 101: How Light Shapes the Mood of an Event",
-    excerpt: "From warm wash to sharp follow spots — understanding how professional lighting transforms a space and an experience.",
-    readTime: "8 min read",
-    date: "Apr 5, 2025",
-  },
-  {
-    category: "Artist Stories",
-    title: "From School Concerts to Headline Artist — Riya Sharma's Journey",
-    excerpt: "An intimate interview with pop artist Riya Sharma on discovering her voice, building her brand, and performing for 5,000 people.",
-    readTime: "10 min read",
-    date: "Mar 28, 2025",
-  },
-  {
-    category: "Creative Education",
-    title: "Why Every School Needs a Professional Arts Faculty Partner",
-    excerpt: "The difference between an in-house arts teacher and a trained specialist from an arts academy — and why it matters for students.",
-    readTime: "5 min read",
-    date: "Mar 20, 2025",
-  },
-  {
-    category: "Industry Insights",
-    title: "The State of Live Events in India: 2025 Trends Report",
-    excerpt: "From hybrid event formats to immersive installations — the five trends shaping India's live event industry this year.",
-    readTime: "9 min read",
-    date: "Mar 10, 2025",
-  },
-  {
-    category: "Cinematography",
-    title: "Drone Cinematography: When to Use It & When Not To",
-    excerpt: "Drone shots are powerful — but overused, they're ordinary. A practical guide to aerial cinematography decisions.",
-    readTime: "6 min read",
-    date: "Mar 2, 2025",
-  },
-];
+export const revalidate = 60; // Revalidate cache every 60 seconds
 
-const featured = posts[0];
+export default async function BlogPage() {
+  await dbConnect();
+  const dbPosts = await Blog.find({}).sort({ createdAt: -1 }).lean() as IBlog[];
 
-export default function BlogPage() {
+  // Fallback to empty states if no posts found
+  const posts = dbPosts.length > 0 ? dbPosts : [];
+  
+  // Extract dynamic categories from posts if needed, or use defaults
+  const categories = ["All", ...Array.from(new Set(posts.map(p => p.category)))];
+  
+  // Use default categories if we have very few dynamic ones
+  const finalCategories = categories.length > 1 ? categories : defaultCategories;
+
+  const featured = posts.length > 0 ? posts[0] : null;
+
   return (
     <>
       {/* Hero */}
@@ -100,38 +57,42 @@ export default function BlogPage() {
       </section>
 
       {/* Featured Post */}
-      <ScrollReveal className="py-xl px-margin max-w-7xl mx-auto">
-        <div>
-          <p className="text-label-sm text-on-surface-variant uppercase tracking-widest mb-md stagger-item">
-            Featured Article
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-            <div
-              className="md:col-span-7 relative min-h-[400px] bg-[#121010] border border-[#2A2218] overflow-hidden group stagger-item card-lift cursor-pointer"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 30% 60%, rgba(245,158,11,0.12) 0%, transparent 55%), #121010",
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-lg z-10">
-                <span className="text-primary-container text-label-sm uppercase tracking-widest mb-xs block">
-                  {featured.category}
-                </span>
-                <h2 className="text-headline-md mb-md">{featured.title}</h2>
-                <p className="text-body-md text-on-surface-variant mb-md line-clamp-2">
-                  {featured.excerpt}
-                </p>
-                <div className="flex items-center gap-md text-label-sm text-on-surface-variant">
-                  <span>{featured.date}</span>
-                  <span>·</span>
-                  <span>{featured.readTime}</span>
+      {featured && (
+        <ScrollReveal className="py-xl px-margin max-w-7xl mx-auto">
+          <div>
+            <p className="text-label-sm text-on-surface-variant uppercase tracking-widest mb-md stagger-item">
+              Featured Article
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+              <div
+                className="md:col-span-7 relative min-h-[400px] bg-[#121010] border border-[#2A2218] overflow-hidden group stagger-item card-lift cursor-pointer"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at 30% 60%, rgba(245,158,11,0.12) 0%, transparent 55%), #121010",
+                }}
+              >
+                {featured.imageUrl && (
+                   <div className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity" style={{ backgroundImage: `url(${featured.imageUrl})` }} />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-lg z-10">
+                  <span className="text-primary-container text-label-sm uppercase tracking-widest mb-xs block">
+                    {featured.category}
+                  </span>
+                  <h2 className="text-headline-md mb-md">{featured.title}</h2>
+                  <p className="text-body-md text-on-surface-variant mb-md line-clamp-2">
+                    {featured.excerpt}
+                  </p>
+                  <div className="flex items-center gap-md text-label-sm text-on-surface-variant">
+                    <span>{featured.date}</span>
+                    <span>·</span>
+                    <span>{featured.readTime}</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="md:col-span-5 flex flex-col gap-gutter">
-              {posts.slice(1, 3).map((post, i) => (
+              <div className="md:col-span-5 flex flex-col gap-gutter">
+                {posts.slice(1, 3).map((post, i) => (
                 <div
                   key={i}
                   className="bg-[#121010] border border-[#2A2218] p-lg flex-1 stagger-item card-lift cursor-pointer"
@@ -154,12 +115,13 @@ export default function BlogPage() {
           </div>
         </div>
       </ScrollReveal>
+      )}
 
       {/* Category Filter + Grid */}
       <ScrollReveal className="py-xl bg-surface-container-lowest border-y border-outline-variant/10">
         <div className="max-w-7xl mx-auto px-margin">
           <div className="flex flex-wrap gap-sm mb-xl stagger-item">
-            {categories.map((c, i) => (
+            {finalCategories.map((c, i) => (
               <button
                 key={c}
                 className={`px-md py-xs text-label-sm uppercase tracking-wide transition-all ${

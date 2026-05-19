@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HomePageContent from "@/components/pages/HomePageContent";
 import { createPageMetadata } from "@/lib/seo";
+import { getPageContent } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Athah — Creative Partner for Events, Media, Growth & Arts",
@@ -16,6 +17,7 @@ export const metadata: Metadata = createPageMetadata({
   ],
 });
 
-export default function HomePage() {
-  return <HomePageContent />;
+export default async function HomePage() {
+  const content = await getPageContent("home");
+  return <HomePageContent content={content} />;
 }

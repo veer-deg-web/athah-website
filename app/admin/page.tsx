@@ -3,6 +3,7 @@ import { requireAdminSession } from "@/lib/admin-auth";
 import { listCareerApplications } from "@/lib/careers";
 import { createPageMetadata } from "@/lib/seo";
 import { listFeedbackSubmissions } from "@/lib/testimonials";
+import { getAllEditablePages } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Admin Dashboard — Athah Careers",
@@ -16,6 +17,7 @@ export default async function AdminDashboardPage() {
   const session = await requireAdminSession();
   const applications = await listCareerApplications();
   const feedback = await listFeedbackSubmissions();
+  const pages = await getAllEditablePages();
 
   return (
     <section className="px-margin py-xl">
@@ -38,6 +40,40 @@ export default async function AdminDashboardPage() {
               Log Out
             </button>
           </form>
+        </div>
+
+        <div className="mb-xl">
+          <div className="mb-lg">
+            <h2 className="text-headline-md mb-sm">Content Management</h2>
+            <p className="text-body-md text-on-surface-variant">
+              Edit the text content of your website pages.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+            {pages.map((p) => (
+              <a
+                key={p.slug}
+                href={`/admin/content/${p.slug}`}
+                className="bg-surface-container-low border border-outline-variant/20 p-md flex flex-col gap-sm hover:border-primary-container transition-all group"
+              >
+                <span className="material-symbols-outlined text-primary-container text-[24px]">
+                  edit_document
+                </span>
+                <span className="text-body-lg font-bold group-hover:text-primary transition-colors">{p.name}</span>
+                <span className="text-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Edit Content &rarr;</span>
+              </a>
+            ))}
+            <a
+              href="/admin/blogs/new"
+              className="bg-surface-container-low border border-outline-variant/20 p-md flex flex-col gap-sm hover:border-primary-container transition-all group"
+            >
+              <span className="material-symbols-outlined text-primary-container text-[24px]">
+                article
+              </span>
+              <span className="text-body-lg font-bold group-hover:text-primary transition-colors">Blogs</span>
+              <span className="text-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">Write a Blog &rarr;</span>
+            </a>
+          </div>
         </div>
 
         <div className="mb-xl">
@@ -165,7 +201,12 @@ export default async function AdminDashboardPage() {
                       </td>
                       <td className="px-md py-md text-body-md text-on-surface-variant">{item.type}</td>
                       <td className="px-md py-md text-body-md text-on-surface-variant max-w-md">
-                        {item.quote}
+                        <p className="mb-sm">{item.quote}</p>
+                        {item.referenceEvent && (
+                          <p className="text-label-sm text-primary-container uppercase tracking-wide">
+                            Ref: {item.referenceEvent}
+                          </p>
+                        )}
                       </td>
                       <td className="px-md py-md">
                         <span className="px-sm py-xs bg-surface-container-high text-label-sm uppercase tracking-widest text-on-surface">

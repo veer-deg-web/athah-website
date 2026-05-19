@@ -10,6 +10,7 @@ type SubmissionState = {
 
 export default function ClientFeedbackForm() {
   const [state, setState] = useState<SubmissionState>({ status: "idle" });
+  const [role, setRole] = useState("School / Principal");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -56,7 +57,19 @@ export default function ClientFeedbackForm() {
         </label>
         <label className="space-y-xs">
           <span className="text-label-sm uppercase tracking-widest text-on-surface-variant">Role</span>
-          <input name="role" required className="w-full border border-outline-variant/25 bg-surface-container px-md py-md text-body-md outline-none focus:border-primary-container" />
+          <select 
+            name="role" 
+            required 
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="w-full border border-outline-variant/25 bg-surface-container px-md py-md text-body-md outline-none focus:border-primary-container"
+          >
+            <option value="School / Principal">School / Principal</option>
+            <option value="Parent">Parent</option>
+            <option value="Student">Student</option>
+            <option value="Brand / Client">Brand / Client</option>
+            <option value="Other">Other</option>
+          </select>
         </label>
         <label className="space-y-xs">
           <span className="text-label-sm uppercase tracking-widest text-on-surface-variant">Organization</span>
@@ -74,6 +87,20 @@ export default function ClientFeedbackForm() {
             <option>Brand Partner</option>
             <option>Client Feedback</option>
           </select>
+        </label>
+        
+        {/* Conditional Reference Event Field */}
+        <label className="space-y-xs md:col-span-2">
+          <span className="text-label-sm uppercase tracking-widest text-on-surface-variant">
+            {role === "Parent" || role === "Student" 
+              ? "Which Performance / Event are you providing feedback for?"
+              : "Which Production / Event? (Optional)"}
+          </span>
+          <input 
+            name="referenceEvent" 
+            placeholder={role === "Parent" ? "e.g. Annual Day Dance Performance" : "e.g. Tula's Institute Annual Function 2026"}
+            className="w-full border border-outline-variant/25 bg-surface-container px-md py-md text-body-md outline-none focus:border-primary-container" 
+          />
         </label>
         <label className="space-y-xs md:col-span-2">
           <span className="text-label-sm uppercase tracking-widest text-on-surface-variant">Your Feedback</span>

@@ -31,7 +31,7 @@ type CategoryItem =
       embedSrc: string;
     };
 
-const categories: CategoryItem[] = [
+const defaultCategories: CategoryItem[] = [
   {
     id: "ads",
     label: "Ads",
@@ -279,7 +279,9 @@ function getDriveThumbnailSrc(url: string) {
   return fileId ? `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000` : null;
 }
 
-export default function PortfolioPageContent() {
+export default function PortfolioPageContent({ initialCategories }: { initialCategories?: CategoryItem[] }) {
+  const categories: CategoryItem[] = initialCategories && initialCategories.length > 0 ? initialCategories : defaultCategories;
+  
   const [activeCategoryId, setActiveCategoryId] = useState<string>("ads");
   const [selectedVideos, setSelectedVideos] = useState<Record<string, number>>(
     () =>

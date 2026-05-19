@@ -743,7 +743,7 @@ function CTASection() {
   );
 }
 
-export default function HomePageContent() {
+export default function HomePageContent({ content }: { content?: any }) {
   return (
     <>
       <HeroSection />

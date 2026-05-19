@@ -17,6 +17,7 @@ export type FeedbackSubmission = {
   phone: string;
   type: string;
   logo?: string;
+  referenceEvent?: string;
 };
 
 const storageRoot = path.join(process.cwd(), "storage", "testimonials");
@@ -144,6 +145,7 @@ export function validateFeedbackForm(formData: FormData) {
   const email = String(formData.get("email") || "").trim();
   const phone = String(formData.get("phone") || "").trim();
   const type = String(formData.get("type") || "").trim() || "Client Feedback";
+  const referenceEvent = String(formData.get("referenceEvent") || "").trim();
 
   const errors: string[] = [];
   if (quote.length < 40) errors.push("Please add at least 40 characters of feedback.");
@@ -163,6 +165,7 @@ export function validateFeedbackForm(formData: FormData) {
       email,
       phone,
       type,
+      referenceEvent,
       logo: "",
     },
   };
