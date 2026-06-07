@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ModelSpotlight from "@/components/ModelSpotlight";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const eventTypes = [
@@ -93,28 +92,38 @@ export default function EventsPageContent() {
         </div>
       </section>
 
-      <ModelSpotlight
-        badge="Stage Design Preview"
-        title="See the Event World Before It Goes Live"
-        description="The Events division is where stagecraft, sound, and showmanship come together. A focused 3D stage preview fits here because it supports the production story instead of interrupting the homepage."
-        notes={[
-          "Useful for concerts, annual functions, and artist nights",
-          "A cleaner place to show staging capability than the landing page",
-          "Works as a visual bridge between planning and execution",
-          "Keeps the homepage focused on the overall brand message",
-        ]}
-        fitMode="bounds"
-        autoRotate={true}
-        sceneClassName="mx-auto w-full max-w-[56rem] lg:max-w-[64rem]"
-        canvasClassName="h-[680px] w-full lg:h-[860px]"
-        items={[
-          {
-            url: "/glb/concert-stage.glb",
-            scale: 1,
-            floating: false,
-          },
-        ]}
-      />
+      <section className="px-margin py-xl">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 gap-xl items-center lg:grid-cols-2">
+          <div className="relative overflow-hidden border border-[#2A2218] min-h-[420px] lg:min-h-[560px]">
+            <img
+              src="/assets/IMG-20260508-WA0060.jpg"
+              alt="Athah Events stage production"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-xl">
+              <p className="text-primary-container text-label-sm uppercase tracking-widest mb-sm">500+ Events Executed</p>
+              <h3 className="text-headline-lg">Production That Moves Audiences</h3>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center min-w-0">
+            <span className="inline-block px-md py-xs border border-primary/50 text-primary text-label-sm uppercase tracking-widest rounded-full mb-md w-fit">
+              Stage Design & Production
+            </span>
+            <h2 className="text-headline-lg mb-md">Engineered for Maximum Impact</h2>
+            <p className="text-body-lg text-on-surface-variant mb-lg">
+              Every stage is custom-built for the event — lighting design, sound engineering, and scenic production crafted to match the brief and move the audience.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+              {["Custom stage fabrication", "Cinematic lighting design", "Premium PA systems", "Special effects & pyro"].map((note) => (
+                <div key={note} className="border border-outline-variant/20 bg-black/20 p-md text-body-md text-on-surface-variant">
+                  {note}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">
         <div className="max-w-7xl mx-auto">
@@ -276,6 +285,73 @@ export default function EventsPageContent() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </ScrollReveal>
+
+      {/* Areas We Serve */}
+      <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-xl items-start">
+            <div className="stagger-item">
+              <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
+                Service Coverage
+              </span>
+              <h2 className="text-headline-lg mb-md">
+                Serving Dehradun &amp; Nearby Areas
+              </h2>
+              <p className="text-body-lg text-on-surface-variant mb-lg">
+                We manage events across all major localities in Dehradun and extend our services to Mussoorie, Rishikesh, Haridwar, and beyond. Wherever your event is, we bring the same standard of excellence.
+              </p>
+              <div className="flex flex-wrap gap-sm">
+                {[
+                  "Rajpur Road", "GMS Road", "Sahastradhara", "Balliwala",
+                  "Prem Nagar", "Clement Town", "Mussoorie Road", "Doiwala",
+                  "Jolly Grant", "Raipur Road", "Chakrata Road", "Dehradun Cantt",
+                  "Mussoorie", "Rishikesh", "Haridwar", "Chakrata",
+                ].map((area) => (
+                  <span
+                    key={area}
+                    className="px-md py-xs border border-outline-variant/20 text-label-sm text-on-surface-variant bg-[#121010]"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="stagger-item">
+              <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
+                Venue Experience
+              </span>
+              <h2 className="text-headline-lg mb-md">
+                Popular Event Venues in Dehradun
+              </h2>
+              <p className="text-body-md text-on-surface-variant mb-lg">
+                We have worked across Dehradun's top hotels, resorts, lawns, and institutions. Our vendor network at each venue means faster setup and fewer surprises.
+              </p>
+              <div className="flex flex-col gap-sm">
+                {[
+                  { name: "Four Points by Sheraton Dehradun", type: "5-Star Hotel" },
+                  { name: "Hyatt Regency Dehradun Resort & Spa", type: "Luxury Resort" },
+                  { name: "Fairfield by Marriott Dehradun", type: "Business Hotel" },
+                  { name: "LP Vilas & Regenta LP Vilas", type: "Heritage Property" },
+                  { name: "Hotel Madhuban & MJ Sarovar Portico", type: "Banquet Venues" },
+                  { name: "Private Farms & Lawns", type: "Sahastradhara & Mussoorie Road" },
+                  { name: "Tula's Institute & DIT University", type: "Institutional Auditoriums" },
+                ].map((v) => (
+                  <div
+                    key={v.name}
+                    className="flex items-center justify-between bg-[#121010] border border-[#2A2218] px-lg py-md stagger-item"
+                  >
+                    <p className="text-body-md text-on-surface font-medium">{v.name}</p>
+                    <span className="text-label-sm text-primary-container/70 uppercase tracking-wide ml-md text-right shrink-0">
+                      {v.type}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </ScrollReveal>

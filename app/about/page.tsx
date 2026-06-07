@@ -62,25 +62,110 @@ function BrandStory() {
         </div>
 
         <div
-          className="stagger-item relative h-[400px] border border-[#2A2218] overflow-hidden"
-          style={{
-            background:
-              "radial-gradient(ellipse at 40% 60%, rgba(245,158,11,0.15) 0%, transparent 60%), #121010",
-          }}
+          className="stagger-item relative h-[480px] border border-[#2A2218] overflow-hidden"
+          style={{ background: "#080808" }}
         >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <p
-              className="text-display text-primary-container/20 font-bold uppercase"
-              style={{ fontSize: "120px", letterSpacing: "-0.05em" }}
+          {/* Grid texture */}
+          <div
+            className="absolute inset-0 opacity-[0.025]"
+            style={{
+              backgroundImage:
+                "linear-gradient(#e2e2e2 1px, transparent 1px), linear-gradient(90deg, #e2e2e2 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+          />
+
+          {/* Pulsing amber spotlight */}
+          <div
+            className="absolute inset-0 animate-pulse"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.22) 0%, rgba(217,119,6,0.09) 38%, transparent 68%)",
+              animationDuration: "3s",
+            }}
+          />
+
+          {/* Layer 1 — 200px, blurred, 5% */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <span
+              style={{
+                fontSize: "200px",
+                fontWeight: 800,
+                color: "#D97706",
+                opacity: 0.05,
+                lineHeight: 1,
+                filter: "blur(7px)",
+              }}
             >
-              अथ
-            </p>
+              अथाह
+            </span>
           </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <p className="text-headline-lg text-on-surface/80 font-bold uppercase tracking-widest">
+
+          {/* Layer 2 — 130px, slight blur, 11% */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <span
+              style={{
+                fontSize: "130px",
+                fontWeight: 800,
+                color: "#D97706",
+                opacity: 0.11,
+                lineHeight: 1,
+                filter: "blur(2px)",
+              }}
+            >
+              अथाह
+            </span>
+          </div>
+
+          {/* Layer 3 — 72px, sharp, 22% */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <span
+              style={{
+                fontSize: "72px",
+                fontWeight: 700,
+                color: "#F59E0B",
+                opacity: 0.22,
+                lineHeight: 1,
+              }}
+            >
+              अथाह
+            </span>
+          </div>
+
+          {/* Front — ATHAH with amber glow */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-sm">
+            <p
+              className="font-bold uppercase"
+              style={{
+                fontSize: "30px",
+                color: "#FFFFFF",
+                letterSpacing: "0.35em",
+                textShadow:
+                  "0 0 24px rgba(245,158,11,0.8), 0 0 56px rgba(245,158,11,0.4), 0 0 100px rgba(245,158,11,0.18)",
+              }}
+            >
               ATHAH
             </p>
+            <div className="flex items-center gap-sm mt-xs">
+              <div className="w-8 h-px bg-amber-500/40" />
+              <p
+                className="text-label-sm uppercase text-amber-500/50"
+                style={{ letterSpacing: "0.2em" }}
+              >
+                Infinite
+              </p>
+              <div className="w-8 h-px bg-amber-500/40" />
+            </div>
           </div>
+
+          {/* Edge vignette */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 50%, transparent 48%, rgba(8,8,8,0.85) 100%)",
+            }}
+          />
         </div>
       </div>
     </ScrollReveal>

@@ -21,8 +21,8 @@ const navLinks = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Solutions", href: "/solutions" },
   { label: "Clients", href: "/clients" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  // { label: "Blog", href: "/blog" },
+  // { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {

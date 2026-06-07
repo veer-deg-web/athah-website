@@ -6,9 +6,9 @@ const siteUrl =
 export const siteMetadata = {
   name: "Athah",
   url: siteUrl,
-  defaultTitle: "Athah — Creating Experiences That Define Moments",
+  defaultTitle: "Athah — Best Event Management Company in Dehradun",
   description:
-    "India's premier creative force — events, media, growth studio, and arts academy, delivered with cinematic precision.",
+    "Athah is Dehradun's top event management company — weddings, school annual days, corporate events, media production, and arts faculty for schools across Uttarakhand.",
   locale: "en_IN",
   ogImage: "/assets/IMG-20260508-WA0059.jpg",
 };

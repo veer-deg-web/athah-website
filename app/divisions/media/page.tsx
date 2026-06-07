@@ -3,10 +3,19 @@ import MediaPageContent from "@/components/pages/MediaPageContent";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Athah Media — Cinematography, Photography & Production",
+  title: "Photography & Videography Company in Dehradun — Athah Media",
   description:
-    "Cinema-grade media production including cinematography, photography, commercial ads, music videos, drone shoots, and event aftermovies.",
+    "Athah Media is Dehradun's cinema-grade production company. We offer event photography, videography, commercial ads, music videos, drone shoots, and aftermovies across Uttarakhand.",
   path: "/divisions/media",
+  keywords: [
+    "photography company Dehradun",
+    "videography Dehradun",
+    "cinematography Dehradun",
+    "event photographer Dehradun",
+    "drone shoot Dehradun",
+    "music video production Dehradun",
+    "commercial video production Uttarakhand",
+  ],
 });
 
 export default function AthahMediaPage() {

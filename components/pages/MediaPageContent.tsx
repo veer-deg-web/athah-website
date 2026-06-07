@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ModelSpotlight from "@/components/ModelSpotlight";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const services = [
@@ -115,30 +114,38 @@ export default function MediaPageContent() {
         </div>
       </section>
 
-      <ModelSpotlight
-        badge="Production Gear"
-        title="The Media Division Deserves the Camera Language"
-        description="Here the 3D models reinforce the actual service: capture. Using camera props on the Media page feels intentional because they visualize equipment, framing, and production craft."
-        notes={[
-          "Video camera and still camera match the production offering",
-          "3D adds context without competing with the real showreel footage",
-          "A contained gear scene feels more premium than a mixed prop collage",
-          "Keeps motion and visual interest inside the right division page",
-        ]}
-        align="left"
-        fitMode="bounds"
-        autoRotate={true}
-        sceneClassName="mx-auto w-full max-w-[52rem] lg:max-w-[60rem]"
-        canvasClassName="h-[660px] w-full lg:h-[800px]"
-        items={[
-          {
-            url: "/glb/video-camera.glb",
-            scale: 1,
-            floating: true,
-            floatSpeed: 0.7,
-          },
-        ]}
-      />
+      <section className="px-margin py-xl">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 gap-xl items-center lg:grid-cols-[minmax(320px,0.86fr)_minmax(560px,1.14fr)]">
+          <div className="relative overflow-hidden border border-[#2A2218] min-h-[420px] lg:min-h-[560px]">
+            <img
+              src="/assets/IMG-20260508-WA0052.jpg"
+              alt="Athah Media production setup"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-xl">
+              <p className="text-primary-container text-label-sm uppercase tracking-widest mb-xs">4K & 8K Production</p>
+              <h3 className="text-headline-md">Cinema-Grade Equipment</h3>
+            </div>
+          </div>
+          <div className="min-w-0 max-w-2xl lg:max-w-none">
+            <span className="inline-block px-md py-xs border border-primary/50 text-primary text-label-sm uppercase tracking-widest rounded-full mb-md">
+              Production Gear
+            </span>
+            <h2 className="text-headline-lg mb-md">The Right Equipment for Every Frame</h2>
+            <p className="text-body-lg text-on-surface-variant max-w-xl lg:max-w-2xl mb-lg">
+              Cinema-grade cameras, professional lighting rigs, licensed drones, and multi-cam broadcast setups — our gear matches the ambition of every project we take on.
+            </p>
+            <div className="grid gap-md sm:grid-cols-2">
+              {["4K/8K cinema cameras", "Licensed drone operators", "Multi-cam broadcast rigs", "Professional audio capture"].map((note) => (
+                <div key={note} className="border border-outline-variant/20 bg-black/20 p-md text-body-md text-on-surface-variant">
+                  {note}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <ScrollReveal className="py-xl px-margin bg-surface-container-lowest border-y border-outline-variant/10">
         <div className="max-w-7xl mx-auto">

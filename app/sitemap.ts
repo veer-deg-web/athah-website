@@ -24,8 +24,9 @@ const routes: RouteConfig[] = [
   { path: "/divisions/growth-studio", priority: 0.8, changeFrequency: "monthly" },
   { path: "/divisions/arts-academy", priority: 0.8, changeFrequency: "monthly" },
 
-  // Solutions hub
+  // Solutions hub + landing pages
   { path: "/solutions", priority: 0.75, changeFrequency: "monthly" },
+  { path: "/solutions/school-annual-day", priority: 0.85, changeFrequency: "monthly" },
 
   // Supporting pages
   { path: "/careers", priority: 0.7, changeFrequency: "monthly" },

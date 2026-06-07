@@ -1,5 +1,4 @@
 import Link from "next/link";
-import InstrumentGrid from "@/components/InstrumentGrid";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const faculties = [
@@ -78,26 +77,41 @@ export default function ArtsAcademyPageContent() {
 
       <section className="px-margin py-xl">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-stretch">
-          {/* Left — 2×2 instrument grid */}
-          <div className="w-full">
-            <InstrumentGrid height="h-[155px] lg:h-[185px]" />
+          <div className="grid grid-cols-2 gap-sm">
+            {[
+              { icon: "self_improvement", label: "Dance" },
+              { icon: "music_note", label: "Music" },
+              { icon: "theater_comedy", label: "Theatre" },
+              { icon: "brush", label: "Fine Arts" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="h-[155px] lg:h-[185px] bg-[#121010] border border-[#2A2218] flex flex-col items-center justify-center gap-sm card-lift"
+              >
+                <span className="material-symbols-outlined text-primary-container text-[56px] lg:text-[64px]">
+                  {item.icon}
+                </span>
+                <span className="text-label-sm uppercase tracking-widest text-on-surface-variant">
+                  {item.label}
+                </span>
+              </div>
+            ))}
           </div>
 
-          {/* Right — text content */}
           <div className="flex flex-col justify-center min-w-0">
             <span className="inline-block px-md py-xs border border-primary/50 text-primary text-label-sm uppercase tracking-widest rounded-full mb-md w-fit">
-              Instrument Focus
+              Four Creative Disciplines
             </span>
-            <h2 className="text-headline-lg mb-md">Arts Academy Should Showcase the Instruments</h2>
+            <h2 className="text-headline-lg mb-md">Every Art Form, One Academy</h2>
             <p className="text-body-lg text-on-surface-variant mb-lg">
-              This page is the natural home for music-led models. Guitar, drum kit, boombox, and speaker support the academy story because they connect directly to training, recital practice, and performance readiness.
+              From classical dance and vocal training to theatre direction and fine arts — our faculty covers every creative discipline your institution needs, with consistent quality and professional standards.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
               {[
-                "Ties the 3D content directly to faculty and student practice",
-                "Feels aligned with recital, vocal, and instrument training",
-                "Supports the academy narrative without cluttering other pages",
-                "Lets each division keep its own visual identity",
+                "20+ trained faculty across all disciplines",
+                "Flexible scheduling for school timetables",
+                "Recital and competition preparation",
+                "Faculty replacement guaranteed in 24hrs",
               ].map((note) => (
                 <div key={note} className="border border-outline-variant/20 bg-black/20 p-md text-body-md text-on-surface-variant">
                   {note}
