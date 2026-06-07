@@ -4,16 +4,26 @@ import { createPageMetadata } from "@/lib/seo";
 import { getPageContent } from "@/lib/content";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Athah — Creative Partner for Events, Media, Growth & Arts",
+  title: "Athah — Best Event Management Company in Dehradun | Weddings, School Events, Corporate",
   description:
-    "Athah brings together events, media production, growth strategy, and arts education for schools, institutions, artists, and brands.",
+    "Athah is Dehradun's #1 event management company. We handle weddings, school annual days, corporate events, concerts, media production, and arts faculty placement across Uttarakhand.",
   path: "/",
   keywords: [
+    "event management company in Dehradun",
+    "best event management Dehradun",
+    "wedding planner Dehradun",
+    "school annual day organizer Dehradun",
+    "corporate event management Uttarakhand",
+    "event company Dehradun",
+    "school event management Dehradun",
+    "Athah events Dehradun",
+    "arts faculty for schools Dehradun",
+    "media production company Dehradun",
+    "cinematography Dehradun",
+    "photography company Dehradun",
+    "concert organizer Dehradun",
+    "cultural event management Uttarakhand",
     "Athah",
-    "events company India",
-    "school creative partner",
-    "media production",
-    "arts academy",
   ],
 });
 

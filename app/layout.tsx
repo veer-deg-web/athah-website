@@ -33,16 +33,23 @@ export const metadata: Metadata = {
   publisher: siteMetadata.name,
   category: "Arts & Entertainment",
   keywords: [
+    "event management company in Dehradun",
+    "best event management Dehradun",
+    "wedding planner Dehradun",
+    "school annual day Dehradun",
+    "corporate event management Dehradun",
+    "event organizer Uttarakhand",
+    "school event management company",
+    "arts faculty for schools Dehradun",
+    "media production company Dehradun",
+    "cinematography Dehradun",
+    "photography Dehradun",
+    "concert organizer Dehradun",
     "Athah Events",
     "Athah Media",
     "Athah Growth Studio",
     "Athah Arts Academy",
-    "event management",
-    "wedding planners",
-    "corporate events",
-    "cinematography",
-    "school events",
-    "creative partner",
+    "creative partner Dehradun",
   ],
   openGraph: {
     siteName: siteMetadata.name,
@@ -54,6 +61,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteMetadata.ogImage,
+        width: 1200,
+        height: 630,
         alt: siteMetadata.defaultTitle,
       },
     ],
@@ -80,15 +89,17 @@ export const metadata: Metadata = {
 // JSON-LD structured data for Google rich results
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness"],
+  "@type": ["EventPlanner", "LocalBusiness", "Organization"],
   name: "Athah Arts & Entertainment",
-  alternateName: "Athah",
+  alternateName: ["Athah", "Athah Events", "Athah Dehradun"],
   url: siteMetadata.url,
   logo: `${siteMetadata.url}/ATHAH LOGO.png`,
   image: `${siteMetadata.url}${siteMetadata.ogImage}`,
-  description: siteMetadata.description,
+  description:
+    "Athah is Dehradun's leading event management company offering weddings, school annual days, corporate events, media production, and arts faculty placement across Uttarakhand.",
   telephone: "+91-98975-91309",
   email: "athaheventsddn@gmail.com",
+  priceRange: "₹₹",
   address: {
     "@type": "PostalAddress",
     streetAddress: "154/1 Mazaar Lane, Chakrata Road",
@@ -97,24 +108,106 @@ const organizationJsonLd = {
     postalCode: "248001",
     addressCountry: "IN",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 30.3165,
+    longitude: 78.0322,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+  ],
   sameAs: [
     "https://www.instagram.com/athah_events",
     "https://athahartentertainment.com",
   ],
-  areaServed: {
-    "@type": "Country",
-    name: "India",
-  },
+  areaServed: [
+    { "@type": "City", name: "Dehradun" },
+    { "@type": "State", name: "Uttarakhand" },
+    { "@type": "Country", name: "India" },
+  ],
+  knowsAbout: [
+    "Wedding Planning",
+    "School Annual Day Events",
+    "Corporate Event Management",
+    "Concert Production",
+    "Cinematography",
+    "Photography",
+    "Arts Faculty Placement",
+    "Social Media Marketing",
+  ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Athah Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Event Management" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Photography & Videography" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Event Management in Dehradun" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Wedding Planning in Dehradun" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "School Annual Day Management" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Corporate Event Management" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cinematography & Photography" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Social Media & Branding" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Arts Faculty Placement" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Arts Faculty Placement for Schools" } },
     ],
   },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Which is the best event management company in Dehradun?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Athah Arts & Entertainment is Dehradun's leading event management company, having executed 100+ events including weddings, school annual days, corporate events, and concerts across Uttarakhand.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Athah handle school annual day events in Dehradun?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Athah specializes in school annual functions, cultural programs, and graduation ceremonies for schools and institutions in Dehradun and across Uttarakhand. We manage everything from choreography and lighting to stage design and AV production.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does event management cost in Dehradun?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Event management packages at Athah start from ₹1.5 lakh for cultural events and school programs. Wedding and large-scale corporate events are priced based on guest count, venue, and production requirements. Contact us for a custom proposal.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Athah provide wedding planning services in Dehradun?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Athah manages complete wedding planning in Dehradun — from venue coordination and décor to photography, videography, catering liaison, and artist management. We handle every detail so you can enjoy your day.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can Athah provide arts and dance faculty for schools in Dehradun?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Athah Arts Academy provides trained dance, music, theatre, and fine arts faculty to schools in Dehradun and Uttarakhand. We also offer a 24-hour faculty replacement guarantee to ensure zero disruptions.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Athah offer photography and videography services in Dehradun?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Athah Media provides cinema-grade photography and videography in Dehradun — covering events, weddings, corporate videos, music videos, drone shoots, and social media reels.",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -132,6 +225,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body className="min-h-screen flex flex-col bg-background text-on-surface">

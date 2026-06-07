@@ -4,10 +4,19 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Athah Growth Studio — Brand Growth & Social Media",
+  title: "Social Media & Branding Agency in Dehradun — Athah Growth Studio",
   description:
-    "Strategic brand growth for schools, artists, and brands through content creation, social media, branding, and campaign management.",
+    "Athah Growth Studio is Dehradun's strategic brand growth agency. We offer social media management, content creation, branding, and campaign strategy for schools, artists, and businesses in Uttarakhand.",
   path: "/divisions/growth-studio",
+  keywords: [
+    "social media agency Dehradun",
+    "branding company Dehradun",
+    "content creation Dehradun",
+    "digital marketing Dehradun",
+    "social media management Uttarakhand",
+    "reels production Dehradun",
+    "brand strategy Dehradun",
+  ],
 });
 
 const audiences = [

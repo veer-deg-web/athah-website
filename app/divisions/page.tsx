@@ -4,10 +4,18 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Divisions — Athah Events, Media, Growth Studio & Arts Academy",
+  title: "Our Divisions — Event Management, Media, Growth & Arts Academy in Dehradun | Athah",
   description:
-    "Explore Athah's four creative divisions: Events, Media, Growth Studio, and Arts Academy.",
+    "Athah's four specialist divisions in Dehradun: Events (weddings, corporate, school annual days), Media (photography, videography), Growth Studio (social media, branding), and Arts Academy (dance, music faculty).",
   path: "/divisions",
+  keywords: [
+    "event management Dehradun",
+    "photography videography Dehradun",
+    "social media agency Dehradun",
+    "arts faculty Dehradun",
+    "creative company Dehradun",
+    "Athah divisions",
+  ],
 });
 
 const divisions = [
