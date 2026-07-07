@@ -101,9 +101,9 @@ export default async function ClientsPageContent() {
         </div>
       </ScrollReveal>
 
-      <ScrollReveal className="py-xl px-margin">
+      {/* <ScrollReveal className="py-xl px-margin">
         <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[0.9fr_1.1fr] gap-xl items-start">
-          <div className="stagger-item max-w-xl">
+          <div className="stagger-item">
             <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
               Share Feedback
             </span>
@@ -116,7 +116,7 @@ export default async function ClientsPageContent() {
             <ClientFeedbackForm />
           </div>
         </div>
-      </ScrollReveal>
+      </ScrollReveal> */}
     </>
   );
 }

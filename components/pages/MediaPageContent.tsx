@@ -151,7 +151,7 @@ export default function MediaPageContent() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-xl stagger-item">
             <h2 className="text-headline-lg mb-md">Production Services</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               From the first frame to the final cut — every service under one roof.
             </p>
           </div>
@@ -214,7 +214,7 @@ export default function MediaPageContent() {
         <div className="max-w-7xl mx-auto px-margin">
           <div className="mb-xl stagger-item max-w-2xl">
             <h2 className="text-headline-lg mb-md">Media Packages</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               Scalable production solutions for every need and budget.
             </p>
           </div>
@@ -222,11 +222,10 @@ export default function MediaPageContent() {
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`border p-lg flex flex-col ${
-                  pkg.featured
-                    ? "border-2 border-primary-container bg-surface-container-high relative scale-105"
-                    : "border-outline-variant/20 bg-background"
-                }`}
+                className={`border p-lg flex flex-col ${pkg.featured
+                  ? "border-2 border-primary-container bg-surface-container-high relative scale-105"
+                  : "border-outline-variant/20 bg-background"
+                  }`}
               >
                 {pkg.featured && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary-container px-md py-xs text-label-sm font-bold uppercase tracking-wide">
@@ -258,11 +257,10 @@ export default function MediaPageContent() {
                 </ul>
                 <Link
                   href="/contact"
-                  className={`w-full py-md text-label-sm uppercase tracking-wide font-bold text-center transition-all hover:scale-95 ${
-                    pkg.featured
-                      ? "bg-[#D97706] text-white"
-                      : "border border-outline-variant/30 hover:bg-surface-container-high"
-                  }`}
+                  className={`w-full py-md text-label-sm uppercase tracking-wide font-bold text-center transition-all hover:scale-95 ${pkg.featured
+                    ? "bg-[#D97706] text-white"
+                    : "border border-outline-variant/30 hover:bg-surface-container-high"
+                    }`}
                 >
                   {pkg.cta}
                 </Link>

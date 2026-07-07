@@ -9,7 +9,8 @@ export default function ClientTestimonialCard({
     <figure className="bg-[#121010] border border-[#2A2218] p-lg flex flex-col justify-between stagger-item card-lift">
       <div>
         {testimonial.logo ? (
-          <div className="mb-lg flex min-h-16 items-center">
+          <div className="inline-flex items-center justify-center  border border-amber-50"
+            style={{ backgroundColor: "white", height: "100px", width: "100px", borderRadius: "100px" }}>
             <img
               src={testimonial.logo}
               alt={`${testimonial.role} logo`}
@@ -18,7 +19,7 @@ export default function ClientTestimonialCard({
             />
           </div>
         ) : null}
-        <span className="text-primary-container text-label-sm uppercase tracking-widest mb-md block">
+        <span className="text-primary-container z-10 text-label-sm uppercase tracking-widest mb-md block">
           {testimonial.type}
         </span>
         <span className="text-primary-container text-[40px] font-serif leading-none block mb-sm">

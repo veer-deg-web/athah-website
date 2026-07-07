@@ -13,23 +13,23 @@ type VideoItem = {
 
 type CategoryItem =
   | {
-      id: string;
-      label: string;
-      title: string;
-      description: string;
-      type: "videos";
-      href?: string;
-      videos: VideoItem[];
-    }
+    id: string;
+    label: string;
+    title: string;
+    description: string;
+    type: "videos";
+    href?: string;
+    videos: VideoItem[];
+  }
   | {
-      id: string;
-      label: string;
-      title: string;
-      description: string;
-      type: "folder";
-      href: string;
-      embedSrc: string;
-    };
+    id: string;
+    label: string;
+    title: string;
+    description: string;
+    type: "folder";
+    href: string;
+    embedSrc: string;
+  };
 
 const defaultCategories: CategoryItem[] = [
   {
@@ -279,9 +279,9 @@ function getDriveThumbnailSrc(url: string) {
   return fileId ? `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000` : null;
 }
 
-export default function PortfolioPageContent({ initialCategories }: { initialCategories?: CategoryItem[] }) {
-  const categories: CategoryItem[] = initialCategories && initialCategories.length > 0 ? initialCategories : defaultCategories;
-  
+export default function PortfolioPageContent() {
+  const categories: CategoryItem[] = defaultCategories;
+
   const [activeCategoryId, setActiveCategoryId] = useState<string>("ads");
   const [selectedVideos, setSelectedVideos] = useState<Record<string, number>>(
     () =>
@@ -334,11 +334,10 @@ export default function PortfolioPageContent({ initialCategories }: { initialCat
             <button
               type="button"
               onClick={() => selectCategory("all")}
-              className={`px-md py-xs text-label-sm uppercase tracking-wide transition-all ${
-                activeCategoryId === "all"
+              className={`px-md py-xs text-label-sm uppercase tracking-wide transition-all ${activeCategoryId === "all"
                   ? "bg-primary-container text-on-primary-container"
                   : "border border-outline-variant/30 text-on-surface-variant hover:border-primary-container/50 hover:text-on-surface"
-              }`}
+                }`}
             >
               All
             </button>
@@ -347,11 +346,10 @@ export default function PortfolioPageContent({ initialCategories }: { initialCat
                 key={category.id}
                 type="button"
                 onClick={() => selectCategory(category.id)}
-                className={`px-md py-xs text-label-sm uppercase tracking-wide transition-all ${
-                  activeCategoryId === category.id
+                className={`px-md py-xs text-label-sm uppercase tracking-wide transition-all ${activeCategoryId === category.id
                     ? "bg-primary-container text-on-primary-container"
                     : "border border-outline-variant/30 text-on-surface-variant hover:border-primary-container/50 hover:text-on-surface"
-                }`}
+                  }`}
               >
                 {category.label}
               </button>
@@ -364,11 +362,10 @@ export default function PortfolioPageContent({ initialCategories }: { initialCat
                 key={category.id}
                 type="button"
                 onClick={() => selectCategory(category.id)}
-                className={`text-left bg-[#111111] border overflow-hidden stagger-item card-lift transition-all ${
-                  activeCategoryId === category.id
+                className={`text-left bg-[#111111] border overflow-hidden stagger-item card-lift transition-all ${activeCategoryId === category.id
                     ? "border-primary-container"
                     : "border-[#333336]"
-                }`}
+                  }`}
               >
                 <div className="relative aspect-video bg-black border-b border-outline-variant/10">
                   {category.type === "videos" ? (
@@ -419,182 +416,178 @@ export default function PortfolioPageContent({ initialCategories }: { initialCat
               }
 
               return (
-              <section
-                key={category.id}
-                id={`portfolio-category-${category.id}`}
-                className={`bg-[#111111] border overflow-hidden stagger-item scroll-mt-24 ${
-                  activeCategoryId === category.id
-                    ? "border-primary-container"
-                    : "border-[#333336]"
-                }`}
-              >
-                <div className="p-lg md:p-xl border-b border-outline-variant/10">
-                  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-md">
-                    <div className="max-w-3xl">
-                      <span className="text-primary-container text-label-sm uppercase tracking-widest mb-sm block">
-                        {category.label}
-                      </span>
-                      <h2 className="text-headline-lg mb-sm">{category.title}</h2>
-                      <p className="text-body-md text-on-surface-variant">{category.description}</p>
-                    </div>
-                    {category.href ? (
-                      <Link
-                        href={category.href}
-                        target="_blank"
-                        className="text-primary text-label-sm uppercase tracking-wide flex items-center gap-xs"
-                      >
-                        Open in Drive
-                        <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                      </Link>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div className="p-lg md:p-xl">
-                  {category.type === "videos" ? (
-                    (() => {
-                      const selectedVideoIndex = selectedVideos[category.id] ?? 0;
-                      const selectedVideo = category.videos[selectedVideoIndex] ?? category.videos[0];
-                      const isPortrait = selectedVideo.orientation === "portrait";
-
-                      return (
-                        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_21rem] gap-gutter items-start">
-                          <div className="bg-[linear-gradient(160deg,#181818_0%,#0f0f0f_100%)] border border-outline-variant/20 overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.34)]">
-                            <div className="p-md md:p-lg border-b border-outline-variant/10">
-                              <span className="text-primary-container text-label-sm uppercase tracking-widest mb-xs block">
-                                {category.label} {String(selectedVideoIndex + 1).padStart(2, "0")}
-                              </span>
-                              <p className="text-headline-md text-on-surface">{selectedVideo.title}</p>
-                            </div>
-
-                            <div className="px-md pb-md md:px-lg md:pb-lg">
-                              <div className="flex min-h-[420px] items-center justify-center overflow-hidden rounded-[28px] border border-outline-variant/20 bg-[radial-gradient(circle_at_top,_rgba(255,86,38,0.12),_transparent_42%),linear-gradient(180deg,_#0f0f0f_0%,_#090909_100%)] p-sm md:min-h-[560px]">
-                                <div
-                                  className={`relative overflow-hidden rounded-[22px] ${
-                                    isPortrait
-                                      ? "h-[560px] w-[315px] max-w-full"
-                                      : "aspect-video w-full"
-                                  }`}
-                                >
-                                  <DriveFrame
-                                    src={selectedVideo.embedSrc}
-                                    title={selectedVideo.title}
-                                    className="absolute inset-0 h-full w-full"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="px-md pb-md md:px-lg md:pb-lg">
-                              <Link
-                                href={selectedVideo.href}
-                                target="_blank"
-                                className="inline-flex items-center gap-xs text-primary text-label-sm uppercase tracking-wide"
-                              >
-                                Open Drive Link
-                                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                              </Link>
-                            </div>
-                          </div>
-
-                          <div className="bg-[#0f0f0f] border border-outline-variant/20 overflow-hidden">
-                            <div className="p-md md:p-lg border-b border-outline-variant/10">
-                              <p className="text-label-sm uppercase tracking-widest text-primary-container">
-                                Video Selection
-                              </p>
-                              <p className="text-body-sm text-on-surface-variant mt-xs">
-                                Pick a clip from the right to swap the main player.
-                              </p>
-                            </div>
-
-                            <div className="max-h-[760px] overflow-y-auto p-sm">
-                              {category.videos.map((video, index) => {
-                                const isSelected = index === selectedVideoIndex;
-                                const thumbnailSrc = getDriveThumbnailSrc(video.href);
-
-                                return (
-                                  <button
-                                    key={video.href}
-                                    type="button"
-                                    onClick={() => selectVideo(category.id, index)}
-                                    className={`mb-sm w-full overflow-hidden border text-left shadow-[0_18px_48px_rgba(0,0,0,0.28)] transition-all last:mb-0 ${
-                                      isSelected
-                                        ? "border-primary-container bg-[#111111]"
-                                        : "border-outline-variant/20 bg-black hover:border-primary-container/40"
-                                    }`}
-                                  >
-                                    <div className="flex items-center gap-md p-sm md:p-md">
-                                      <div
-                                        className={`relative shrink-0 overflow-hidden bg-black ${
-                                          video.orientation === "portrait"
-                                            ? "h-24 w-[4.5rem]"
-                                            : "h-24 w-40"
-                                        }`}
-                                      >
-                                        {thumbnailSrc ? (
-                                          <img
-                                            src={thumbnailSrc}
-                                            alt={video.title}
-                                            className="absolute inset-0 h-full w-full object-cover"
-                                            loading="lazy"
-                                          />
-                                        ) : (
-                                          <div className="absolute inset-0 flex items-center justify-center bg-[#151515] text-on-surface-variant">
-                                            <span className="material-symbols-outlined text-[24px]">
-                                              play_circle
-                                            </span>
-                                          </div>
-                                        )}
-                                      </div>
-                                      <div className="min-w-0 flex-1">
-                                        <span className="text-primary-container text-label-sm uppercase tracking-widest mb-xs block">
-                                          {category.label} {String(index + 1).padStart(2, "0")}
-                                        </span>
-                                        <p className="text-body-lg text-on-surface mb-xs">{video.title}</p>
-                                        <span className="inline-flex items-center gap-xs text-primary text-label-sm uppercase tracking-wide">
-                                          {isSelected ? "Now Playing" : "Play Video"}
-                                          <span className="material-symbols-outlined text-[16px]">
-                                            {isSelected ? "play_circle" : "arrow_forward"}
-                                          </span>
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })()
-                  ) : (
-                    <div className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-gutter">
-                      <div className="relative overflow-hidden bg-black border border-outline-variant/20 min-h-[560px]">
-                        <DriveFrame
-                          src={category.embedSrc}
-                          title={category.title}
-                          className="absolute inset-0 h-full w-full"
-                        />
+                <section
+                  key={category.id}
+                  id={`portfolio-category-${category.id}`}
+                  className={`bg-[#111111] border overflow-hidden stagger-item scroll-mt-24 ${activeCategoryId === category.id
+                      ? "border-primary-container"
+                      : "border-[#333336]"
+                    }`}
+                >
+                  <div className="p-lg md:p-xl border-b border-outline-variant/10">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-md">
+                      <div className="max-w-3xl">
+                        <span className="text-primary-container text-label-sm uppercase tracking-widest mb-sm block">
+                          {category.label}
+                        </span>
+                        <h2 className="text-headline-lg mb-sm">{category.title}</h2>
+                        <p className="text-body-md text-on-surface-variant">{category.description}</p>
                       </div>
-                      <div className="bg-black border border-outline-variant/20 p-lg">
-                        <h3 className="text-headline-md mb-sm">Drive Folder Linked</h3>
-                        <p className="text-body-md text-on-surface-variant mb-md">
-                          This category is connected to the real Drive folder, but it still needs direct file links to
-                          become a fully playable inline video gallery like the other sections.
-                        </p>
+                      {category.href ? (
                         <Link
                           href={category.href}
                           target="_blank"
-                          className="inline-flex items-center gap-xs text-primary text-label-sm uppercase tracking-wide"
+                          className="text-primary text-label-sm uppercase tracking-wide flex items-center gap-xs"
                         >
-                          Open Ads Folder
+                          Open in Drive
                           <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                         </Link>
-                      </div>
+                      ) : null}
                     </div>
-                  )}
-                </div>
-              </section>
+                  </div>
+
+                  <div className="p-lg md:p-xl">
+                    {category.type === "videos" ? (
+                      (() => {
+                        const selectedVideoIndex = selectedVideos[category.id] ?? 0;
+                        const selectedVideo = category.videos[selectedVideoIndex] ?? category.videos[0];
+                        const isPortrait = selectedVideo.orientation === "portrait";
+
+                        return (
+                          <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_21rem] gap-gutter items-start">
+                            <div className="bg-[linear-gradient(160deg,#181818_0%,#0f0f0f_100%)] border border-outline-variant/20 overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.34)]">
+                              <div className="p-md md:p-lg border-b border-outline-variant/10">
+                                <span className="text-primary-container text-label-sm uppercase tracking-widest mb-xs block">
+                                  {category.label} {String(selectedVideoIndex + 1).padStart(2, "0")}
+                                </span>
+                                <p className="text-headline-md text-on-surface">{selectedVideo.title}</p>
+                              </div>
+
+                              <div className="px-md pb-md md:px-lg md:pb-lg">
+                                <div className="flex min-h-[420px] items-center justify-center overflow-hidden rounded-[28px] border border-outline-variant/20 bg-[radial-gradient(circle_at_top,_rgba(255,86,38,0.12),_transparent_42%),linear-gradient(180deg,_#0f0f0f_0%,_#090909_100%)] p-sm md:min-h-[560px]">
+                                  <div
+                                    className={`relative overflow-hidden rounded-[22px] ${isPortrait
+                                        ? "h-[560px] w-[315px] max-w-full"
+                                        : "aspect-video w-full"
+                                      }`}
+                                  >
+                                    <DriveFrame
+                                      src={selectedVideo.embedSrc}
+                                      title={selectedVideo.title}
+                                      className="absolute inset-0 h-full w-full"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="px-md pb-md md:px-lg md:pb-lg">
+                                <Link
+                                  href={selectedVideo.href}
+                                  target="_blank"
+                                  className="inline-flex items-center gap-xs text-primary text-label-sm uppercase tracking-wide"
+                                >
+                                  Open Drive Link
+                                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                </Link>
+                              </div>
+                            </div>
+
+                            <div className="bg-[#0f0f0f] border border-outline-variant/20 overflow-hidden">
+                              <div className="p-md md:p-lg border-b border-outline-variant/10">
+                                <p className="text-label-sm uppercase tracking-widest text-primary-container">
+                                  Video Selection
+                                </p>
+                                <p className="text-body-sm text-on-surface-variant mt-xs">
+                                  Pick a clip from the right to swap the main player.
+                                </p>
+                              </div>
+
+                              <div className="max-h-[760px] overflow-y-auto p-sm">
+                                {category.videos.map((video, index) => {
+                                  const isSelected = index === selectedVideoIndex;
+                                  const thumbnailSrc = getDriveThumbnailSrc(video.href);
+
+                                  return (
+                                    <button
+                                      key={video.href}
+                                      type="button"
+                                      onClick={() => selectVideo(category.id, index)}
+                                      className={`mb-sm w-full overflow-hidden border text-left shadow-[0_18px_48px_rgba(0,0,0,0.28)] transition-all last:mb-0 ${isSelected
+                                          ? "border-primary-container bg-[#111111]"
+                                          : "border-outline-variant/20 bg-black hover:border-primary-container/40"
+                                        }`}
+                                    >
+                                      <div className="flex items-center gap-md p-sm md:p-md">
+                                        <div
+                                          className={`relative shrink-0 overflow-hidden bg-black ${video.orientation === "portrait"
+                                              ? "h-24 w-[4.5rem]"
+                                              : "h-24 w-40"
+                                            }`}
+                                        >
+                                          {thumbnailSrc ? (
+                                            <img
+                                              src={thumbnailSrc}
+                                              alt={video.title}
+                                              className="absolute inset-0 h-full w-full object-cover"
+                                              loading="lazy"
+                                            />
+                                          ) : (
+                                            <div className="absolute inset-0 flex items-center justify-center bg-[#151515] text-on-surface-variant">
+                                              <span className="material-symbols-outlined text-[24px]">
+                                                play_circle
+                                              </span>
+                                            </div>
+                                          )}
+                                        </div>
+                                        <div className="min-w-0 flex-1">
+                                          <span className="text-primary-container text-label-sm uppercase tracking-widest mb-xs block">
+                                            {category.label} {String(index + 1).padStart(2, "0")}
+                                          </span>
+                                          <p className="text-body-lg text-on-surface mb-xs">{video.title}</p>
+                                          <span className="inline-flex items-center gap-xs text-primary text-label-sm uppercase tracking-wide">
+                                            {isSelected ? "Now Playing" : "Play Video"}
+                                            <span className="material-symbols-outlined text-[16px]">
+                                              {isSelected ? "play_circle" : "arrow_forward"}
+                                            </span>
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })()
+                    ) : (
+                      <div className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-gutter">
+                        <div className="relative overflow-hidden bg-black border border-outline-variant/20 min-h-[560px]">
+                          <DriveFrame
+                            src={category.embedSrc}
+                            title={category.title}
+                            className="absolute inset-0 h-full w-full"
+                          />
+                        </div>
+                        <div className="bg-black border border-outline-variant/20 p-lg">
+                          <h3 className="text-headline-md mb-sm">Drive Folder Linked</h3>
+                          <p className="text-body-md text-on-surface-variant mb-md">
+                            This category is connected to the real Drive folder, but it still needs direct file links to
+                            become a fully playable inline video gallery like the other sections.
+                          </p>
+                          <Link
+                            href={category.href}
+                            target="_blank"
+                            className="inline-flex items-center gap-xs text-primary text-label-sm uppercase tracking-wide"
+                          >
+                            Open Ads Folder
+                            <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </section>
               );
             })()
           )}

@@ -126,7 +126,7 @@ export default function ArtsAcademyPageContent() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-xl stagger-item">
             <h2 className="text-headline-lg mb-md">Our Faculty</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               20+ trained professionals covering every creative discipline.
             </p>
           </div>

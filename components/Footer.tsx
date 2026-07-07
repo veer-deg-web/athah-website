@@ -18,7 +18,6 @@ const footerLinks = {
     { label: "About Athah", href: "/about" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Clients", href: "/clients" },
-    { label: "Blog", href: "/blog" },
     { label: "Careers", href: "/careers" },
   ],
   Legal: [

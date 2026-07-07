@@ -154,7 +154,7 @@ export default function EventsPageContent() {
         <div>
           <div className="mb-xl stagger-item max-w-2xl">
             <h2 className="text-headline-lg mb-md">Services We Provide</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               Every service you need for a complete event — in-house.
             </p>
           </div>
@@ -203,7 +203,7 @@ export default function EventsPageContent() {
       <ScrollReveal className="py-xl px-margin max-w-7xl mx-auto">
         <div>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-md">
-            <div className="stagger-item flex-1 max-w-xl">
+            <div className="stagger-item flex-1 ">
               <h2 className="text-headline-lg mb-md">Event Gallery</h2>
               <p className="text-body-md text-on-surface-variant">A snapshot of the moments we've created.</p>
             </div>

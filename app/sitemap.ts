@@ -15,7 +15,6 @@ const routes: RouteConfig[] = [
   { path: "/contact", priority: 0.95, changeFrequency: "monthly" },
   { path: "/portfolio", priority: 0.9, changeFrequency: "weekly" },
   { path: "/clients", priority: 0.85, changeFrequency: "monthly" },
-  { path: "/blog", priority: 0.85, changeFrequency: "weekly" },
 
   // Division hub + sub-pages
   { path: "/divisions", priority: 0.8, changeFrequency: "monthly" },

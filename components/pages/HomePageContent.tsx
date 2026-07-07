@@ -364,7 +364,7 @@ function FeaturedProjects() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-end mb-xl gap-md">
           <div className="stagger-item">
             <h2 className="text-headline-lg mb-md">Featured Projects</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               A curated selection of our most ambitious work.
             </p>
           </div>
@@ -608,11 +608,12 @@ function TestimonialsSection() {
             >
               <div>
                 {t.logo ? (
-                  <div className="mb-md inline-flex items-center justify-center">
+                  <div className="inline-flex items-center justify-center  border border-amber-50"
+                    style={{ backgroundColor: "white", height: "120px", width: "120px", borderRadius: "100px" }}>
                     <img
                       src={t.logo}
                       alt={`${t.role} logo`}
-                      className="h-10 w-auto max-w-[120px] object-contain"
+                      className=" h-20 object-contain"
                       loading="lazy"
                     />
                   </div>
@@ -685,7 +686,8 @@ function PartnersSection() {
               key={p.name}
               className="border border-outline-variant/20 flex flex-col items-center justify-center py-lg px-md gap-md stagger-item group hover:border-primary-container/50 transition-colors"
             >
-              <div className="h-24 w-full flex items-center justify-center">
+              <div className="h-24 w-full flex items-center justify-center"
+                style={{ backgroundColor: "white", height: "120px", width: "120px", borderRadius: "100px" }}>
                 <img
                   src={p.logo}
                   alt={`${p.name} logo`}
@@ -693,7 +695,7 @@ function PartnersSection() {
                   loading="lazy"
                 />
               </div>
-              <p className="text-label-sm uppercase tracking-widest text-on-surface-variant/50 group-hover:text-on-surface-variant transition-colors text-center">
+              <p className="text-xl uppercase tracking-widest text-on-surface-variant/50 group-hover:text-on-surface-variant transition-colors text-center">
                 {p.name}
               </p>
             </div>

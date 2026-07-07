@@ -21,8 +21,6 @@ const navLinks = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Solutions", href: "/solutions" },
   { label: "Clients", href: "/clients" },
-  // { label: "Blog", href: "/blog" },
-  // { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -44,11 +42,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 w-full z-50 transition-all duration-300 border-b ${
-        scrolled
+      className={`sticky top-0 w-full z-50 transition-all duration-300 border-b ${scrolled
           ? "bg-background/90 backdrop-blur-xl border-outline-variant/20"
           : "bg-transparent border-transparent"
-      }`}
+        }`}
     >
       <nav className="flex justify-between items-center h-20 px-margin max-w-7xl mx-auto">
         {/* Logo */}
@@ -77,11 +74,10 @@ export default function Navbar() {
                 onMouseLeave={() => setDivisionsOpen(false)}
               >
                 <button
-                  className={`text-label-sm uppercase tracking-wide flex items-center gap-xs transition-colors duration-200 ${
-                    pathname.startsWith("/divisions")
+                  className={`text-label-sm uppercase tracking-wide flex items-center gap-xs transition-colors duration-200 ${pathname.startsWith("/divisions")
                       ? "text-primary border-b-2 border-primary pb-px"
                       : "text-on-surface-variant hover:text-on-surface"
-                  }`}
+                    }`}
                 >
                   {link.label}
                   <span className="material-symbols-outlined text-[16px]">
@@ -106,11 +102,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-label-sm uppercase tracking-wide transition-colors duration-200 ${
-                  pathname === link.href
+                className={`text-label-sm uppercase tracking-wide transition-colors duration-200 ${pathname === link.href
                     ? "text-primary border-b-2 border-primary pb-px"
                     : "text-on-surface-variant hover:text-on-surface"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -141,19 +136,16 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
-              mobileOpen ? "rotate-45 translate-y-[7px]" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${
-              mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
+              }`}
           />
         </button>
       </nav>
@@ -183,11 +175,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-label-sm uppercase tracking-wide py-sm transition-colors ${
-                  pathname === link.href
+                className={`text-label-sm uppercase tracking-wide py-sm transition-colors ${pathname === link.href
                     ? "text-primary-container"
                     : "text-on-surface-variant hover:text-on-surface"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>

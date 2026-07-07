@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://athah.in";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://athahartentertainment.com";
 
 export const siteMetadata = {
   name: "Athah",

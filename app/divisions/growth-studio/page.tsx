@@ -123,7 +123,7 @@ export default function GrowthStudioPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-xl stagger-item">
             <h2 className="text-headline-lg mb-md">Who We Grow</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               Customized growth strategies for three distinct audiences.
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function GrowthStudioPage() {
         <div className="max-w-7xl mx-auto px-margin">
           <div className="mb-xl stagger-item max-w-2xl">
             <h2 className="text-headline-lg mb-md">Flexible Plans</h2>
-            <p className="text-body-md text-on-surface-variant max-w-xl">
+            <p className="text-body-md text-on-surface-variant">
               Monthly retainer plans designed to scale with your growth.
             </p>
           </div>
@@ -180,11 +180,10 @@ export default function GrowthStudioPage() {
             {plans.map((p) => (
               <div
                 key={p.name}
-                className={`border p-lg flex flex-col ${
-                  p.featured
-                    ? "border-2 border-primary-container bg-surface-container-high relative scale-105"
-                    : "border-outline-variant/20 bg-background"
-                }`}
+                className={`border p-lg flex flex-col ${p.featured
+                  ? "border-2 border-primary-container bg-surface-container-high relative scale-105"
+                  : "border-outline-variant/20 bg-background"
+                  }`}
               >
                 {p.featured && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary-container px-md py-xs text-label-sm font-bold uppercase">
@@ -210,9 +209,8 @@ export default function GrowthStudioPage() {
                 </ul>
                 <Link
                   href="/contact"
-                  className={`py-md text-label-sm uppercase tracking-wide font-bold text-center transition-all hover:scale-95 ${
-                    p.featured ? "bg-[#D97706] text-white" : "border border-outline-variant/30 hover:bg-surface-container-high"
-                  }`}
+                  className={`py-md text-label-sm uppercase tracking-wide font-bold text-center transition-all hover:scale-95 ${p.featured ? "bg-[#D97706] text-white" : "border border-outline-variant/30 hover:bg-surface-container-high"
+                    }`}
                 >
                   Get Started
                 </Link>
